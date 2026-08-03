@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Play, Pause, Volume2, Globe, TrendingUp, DollarSign, Award, CheckCircle, Sparkles, FileText } from "lucide-react";
+import { Play, Pause, Volume2, Globe, TrendingUp, DollarSign, Award, CheckCircle, Sparkles, FileText, Target, ShieldCheck } from "lucide-react";
 
 export default function AudioJourney() {
   const [language, setLanguage] = useState<"en" | "te">("en");
@@ -31,7 +31,6 @@ export default function AudioJourney() {
       setIsPlaying(false);
     } else {
       audioRef.current.play().then(() => setIsPlaying(true)).catch(() => {
-        // Fallback simulation if audio file is not created yet
         setIsPlaying(true);
       });
     }
@@ -71,7 +70,7 @@ export default function AudioJourney() {
           className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-950/60 border border-amber-500/40 text-amber-300 text-xs font-semibold tracking-widest font-inter uppercase backdrop-blur-md shadow-[0_0_20px_rgba(245,158,11,0.3)]"
         >
           <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-          <span>FOUNDER STORY & PROOF</span>
+          <span>AJAY&apos;S STORY & PROOF</span>
         </motion.div>
 
         <motion.h2
@@ -81,7 +80,7 @@ export default function AudioJourney() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="font-space text-4xl sm:text-6xl font-extrabold text-white tracking-tight"
         >
-          How I Earned <span className="text-vibrant-gradient text-glow-multicolor">₹2 Lakhs in 1 Month</span> With AI Vibe Coding
+          How I Earned <span className="text-vibrant-gradient text-glow-multicolor">₹2.5 Lakhs in Month 1</span> With AI Vibe Coding
         </motion.h2>
 
         <motion.p
@@ -91,7 +90,7 @@ export default function AudioJourney() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="font-inter text-slate-300 text-base sm:text-lg max-w-3xl mx-auto"
         >
-          From managing 50+ Meta ad accounts & 17+ client websites to investing 50% of my income into Stocks & Mutual Funds. Listen to my real story in English or Telugu!
+          From building 17+ client websites to managing Meta & Google Ads and investing ₹60,000 into Zerodha Stocks & Mutual Funds. Listen to my story in English or Telugu!
         </motion.p>
       </div>
 
@@ -108,13 +107,13 @@ export default function AudioJourney() {
             <DollarSign className="w-6 h-6" />
           </div>
           <div className="font-space font-extrabold text-3xl text-white text-glow-pink">
-            ₹2,000,000
+            ₹250,000
           </div>
           <div className="font-inter font-bold text-sm text-amber-300">
-            Earned in 1 Month
+            Earned in 1st Month
           </div>
           <p className="font-inter text-xs text-slate-400">
-            High-ticket client sites & agency ad management scaled with AI tools.
+            Building websites & managing digital marketing projects for real businesses.
           </p>
         </div>
 
@@ -123,28 +122,28 @@ export default function AudioJourney() {
             <TrendingUp className="w-6 h-6" />
           </div>
           <div className="font-space font-extrabold text-3xl text-white text-glow-cyan">
-            50% Invested
+            ₹60,000 Invested
           </div>
           <div className="font-inter font-bold text-sm text-emerald-300">
-            Stocks & Mutual Funds
+            Zerodha Stocks & Mutual Funds
           </div>
           <p className="font-inter text-xs text-slate-400">
-            Building long-term wealth by allocating half of all revenue into equity.
+            Building long-term wealth immediately by allocating income into equity.
           </p>
         </div>
 
         <div className="p-6 rounded-2xl bg-[#060814]/90 border border-purple-500/30 backdrop-blur-2xl shadow-[0_0_30px_rgba(139,92,246,0.2)] space-y-2">
           <div className="p-3 rounded-xl bg-purple-950/60 border border-purple-500/40 text-purple-400 inline-block mb-1">
-            <Award className="w-6 h-6" />
+            <Target className="w-6 h-6" />
           </div>
           <div className="font-space font-extrabold text-3xl text-white text-glow-purple">
-            50+ Ad Accounts
+            Meta & Google Ads
           </div>
           <div className="font-inter font-bold text-sm text-purple-300">
-            Meta Ads Managed
+            Digital Marketing Scale
           </div>
           <p className="font-inter text-xs text-slate-400">
-            Facebook & Instagram campaigns optimized across India.
+            Running targeted campaigns to generate real customer enquiries across India.
           </p>
         </div>
 
@@ -153,13 +152,13 @@ export default function AudioJourney() {
             <Globe className="w-6 h-6" />
           </div>
           <div className="font-space font-extrabold text-3xl text-white text-glow-cyan">
-            17+ Live Sites
+            Proof Over Promises
           </div>
           <div className="font-inter font-bold text-sm text-cyan-300">
-            Deployed on Production
+            Live Client Proofs
           </div>
           <p className="font-inter text-xs text-slate-400">
-            Real client platforms with WhatsApp integration & local SEO.
+            Real portfolio, live website URLs, payment proofs & investment screenshots.
           </p>
         </div>
       </motion.div>
@@ -186,9 +185,9 @@ export default function AudioJourney() {
               <Volume2 className="w-6 h-6" />
             </div>
             <div>
-              <h3 className="font-space font-bold text-xl text-white">Ajay&apos;s Voice Note</h3>
+              <h3 className="font-space font-bold text-xl text-white">Ajay&apos;s Personal Voice Note</h3>
               <p className="font-inter text-xs text-amber-300 font-medium">
-                Listen to the full journey in {language === "en" ? "English" : "Telugu"}
+                Listen in {language === "en" ? "English" : "Telugu"}
               </p>
             </div>
           </div>
@@ -254,7 +253,7 @@ export default function AudioJourney() {
             {/* Time progress */}
             <div className="flex justify-between text-xs font-inter text-slate-400 px-1">
               <span>{formatTime(currentTime)}</span>
-              <span>{duration > 0 ? formatTime(duration) : "1:45"}</span>
+              <span>{duration > 0 ? formatTime(duration) : "2:10"}</span>
             </div>
           </div>
         </div>
@@ -267,7 +266,7 @@ export default function AudioJourney() {
           >
             <span className="flex items-center gap-2">
               <FileText className="w-4 h-4 text-amber-400" />
-              <span>Read Full Script Transcript ({language === "en" ? "English" : "Telugu"})</span>
+              <span>Read Ajay&apos;s Full Story Transcript ({language === "en" ? "English" : "Telugu"})</span>
             </span>
             <span className="text-amber-400">{showScript ? "Hide ▲" : "View Script ▼"}</span>
           </button>
@@ -280,41 +279,31 @@ export default function AudioJourney() {
             >
               {language === "en" ? (
                 <>
-                  <p className="font-bold text-amber-300 text-sm">English Recording Script:</p>
-                  <p>
-                    &quot;Hey everyone, I&apos;m Ajay from TeamAurora.AI! I want to share something real with you today. Using AI tools like Claude and Antigravity, I developed an ultra-fast Vibe Coding workflow that allowed me to earn ₹2,000,000 (2 Lakhs) in just 1 single month!&quot;
-                  </p>
-                  <p>
-                    &quot;I didn&apos;t just keep this income sitting around — I invested 50% of my total earnings directly into Mutual Funds and Stock market equity for long-term growth. Today, I single-handedly manage 50+ Meta Ads accounts and 17+ live production client websites for safety solution businesses across India.&quot;
-                  </p>
-                  <p>
-                    &quot;If I can achieve this with AI-assisted development, you can too! Master AI tools, build real client value, and unlock financial freedom. Let&apos;s build together!&quot;
-                  </p>
+                  <p className="font-bold text-amber-300 text-sm">English Story Script:</p>
+                  <p>&quot;Hello everyone. I&apos;m Ajay. And this is my story.&quot;</p>
+                  <p>&quot;Just one month ago, I started my journey into AI-powered web development, also known as vibe coding. I wasn&apos;t an expert. I simply decided to learn, build, and take action.&quot;</p>
+                  <p>&quot;Within my very first month, I earned around ₹2.5 lakhs by building websites and managing digital marketing projects for businesses. This wasn&apos;t from a job. This wasn&apos;t from YouTube. This wasn&apos;t from luck. It came from solving real problems for real clients.&quot;</p>
+                  <p>&quot;Today, I manage websites and digital marketing for many businesses across India. I build modern websites, manage Google Ads, manage Meta Ads, and help businesses generate real customer enquiries. Everything is powered by AI and my own skills.&quot;</p>
+                  <p>&quot;If you think this sounds unbelievable... I understand. That&apos;s why I&apos;m sharing everything on this website. You&apos;ll find my client websites, project portfolio, payment proofs, and even my investment journey.&quot;</p>
+                  <p>&quot;I believe proof is more powerful than promises. Instead of spending all my earnings, I started investing immediately. Today, I&apos;ve already invested ₹60,000 into mutual funds and the stock market through Zerodha. For me, earning money is only the first step. Building long-term wealth is the real goal.&quot;</p>
+                  <p>&quot;If you&apos;re a student like me, don&apos;t underestimate what one month of focused learning can do. You don&apos;t need a big office or a huge team. You need skills, consistency, the courage to take action, and AI tools. If I can build this in one month... imagine what is possible in one year.&quot;</p>
                 </>
               ) : (
                 <>
-                  <p className="font-bold text-amber-300 text-sm">Telugu Recording Script (తెలుగు భోషణ):</p>
-                  <p>
-                    &quot;హాయ్ ఫ్రెండ్స్, నేను అజయ్ TeamAurora.AI నుండి! ఈ రోజు నా రియల్ జర్నీ మీతో పంచుకుంటున్నాను. క్లాడ్ మరియు యాంటీగ్రావిటీ AI టూల్స్ ఉపయోగించి, నేను రోజులలో వెబ్‌సైట్‌లు నిర్మించే Vibe Coding నేర్చుకున్నాను. దీని ద్వారా నేను ఒక్క నెలలోనే ₹2 లక్షలు సంపాదించాను!&quot;
-                  </p>
-                  <p>
-                    &quot;ఆ ఆదాయంలో 50% పైగా మొత్తాన్ని నేను మ్యూచువల్ ఫండ్స్ మరియు స్టాక్ మార్కెట్లో ఇన్వెస్ట్ చేశాను. ప్రస్తుతం ఇండియా మొత్తం 50 కంటే ఎక్కువ Meta Ad అకౌంట్స్ మరియు 17+ లైవ్ క్లయింట్ వెబ్‌సైట్‌లను AI సహాయంతో మేనేజ్ చేస్తున్నాను.&quot;
-                  </p>
-                  <p>
-                    &quot;AI సహాయంతో ప్రతి విద్యార్థి మరియు డెవలపర్ నిజమైన ఆదాయం పొందవచ్చు. AI టూల్స్ ఉపయోగించి గొప్ప భవిష్యత్తు నిర్మించుకుందాం!&quot;
-                  </p>
+                  <p className="font-bold text-amber-300 text-sm">Telugu Story Script (తెలుగు ట్రాన్స్‌స్క్రిప్ట్):</p>
+                  <p>&quot;అందరికీ నమస్కారం. నేను అజయ్. ఇది నా కథ.&quot;</p>
+                  <p>&quot;కేవలం ఒక నెల క్రితమే నేను AI-పవర్డ్ వెబ్ డెవలప్‌మెంట్ మరియు వైబ్ కోడింగ్ ప్రయాణం ప్రారంభించాను. నేను ఎక్స్‌పర్ట్‌ని కాదు. నేర్చుకోవాలి, నిర్మించాలి, ముందడుగు వేయాలి అని నిర్ణయించుకున్నాను.&quot;</p>
+                  <p>&quot;నా మొదటి నెలలోనే వ్యాపారాలకు వెబ్‌సైట్‌లు నిర్మించడం మరియు డిజిటల్ మార్కెటింగ్ ప్రాజెక్ట్‌లు మేనేజ్ చేయడం ద్వారా సుమారు ₹2.5 లక్షలు సంపాదించాను. ఇది ఉద్యోగం నుండి కాదు, యూట్యూబ్ నుండి కాదు, అదృష్టం వల్ల అసలే కాదు. నిజమైన క్లయింట్ల సమస్యలను పరిష్కరించడం ద్వారా వచ్చింది.&quot;</p>
+                  <p>&quot;ఈ రోజు నేను భారతదేశం నలుమూలలా అనేక వ్యాపారాలకు వెబ్‌సైట్‌లు, గూగుల్ యాడ్స్, మెటా యాడ్స్ మేనేజ్ చేస్తున్నాను. AI మరియు నా నైపుణ్యాలతో వ్యాపారాలకు నిజమైన కస్టమర్ ఎన్‌క్వైరీలు తెచ్చిపెడుతున్నాను.&quot;</p>
+                  <p>&quot;నమ్మశక్యంగా లేదనుకుంటే నేను అర్థం చేసుకోగలను. అందుకే నా క్లయింట్ వెబ్‌సైట్‌లు, పోర్ట్‌ఫోలియో, పేమెంట్ ప్రూఫ్‌లు, నా పెట్టుబడుల ప్రయాణం అన్నీ ఈ వెబ్‌సైట్‌లో పంచుకుంటున్నాను.&quot;</p>
+                  <p>&quot;మాటల కంటే ఆధారాలే శక్తివంతమైనవని నేను నమ్ముతాను. వచ్చిన సంపాదన అంతా ఖర్చు చేయకుండా, జీరోధా ద్వారా ₹60,000 మ్యూచువల్ ఫండ్స్ మరియు స్టాక్ మార్కెట్లో ఇన్వెస్ట్ చేశాను.&quot;</p>
+                  <p>&quot;నాలాంటి విద్యార్థులకు నేను చెప్పేది ఒక్కటే — ఒక నెల శ్రద్ధతో కూడిన నేర్చుకోవడం ఎంత మార్పు తెస్తుందో తక్కువగా అంచనా వేయకండి. AI ఇచ్చే అవకాశాలను ఉపయోగించుకుని మన భవిష్యత్తును మనమే నిర్మించుకుందాం!&quot;</p>
                 </>
               )}
             </motion.div>
           )}
         </div>
       </motion.div>
-
-      {/* Bottom Proof Note */}
-      <div className="pt-8 text-center max-w-xl mx-auto flex items-center justify-center gap-2 text-xs text-slate-400 font-inter">
-        <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-        <span>Verified earnings & client proof — place your audio files in /public/audio/ to play live voice recordings!</span>
-      </div>
     </section>
   );
 }
