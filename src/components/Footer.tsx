@@ -62,8 +62,10 @@ export default function Footer() {
                 <Share2 className="w-4 h-4" />
               </a>
               <a
-                href="#"
-                className="p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/40 transition-colors"
+                href={siteConfig.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-pink-400 hover:border-pink-500/40 transition-colors"
                 aria-label="Instagram"
               >
                 <Camera className="w-4 h-4" />

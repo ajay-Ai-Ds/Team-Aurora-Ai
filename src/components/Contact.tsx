@@ -138,8 +138,10 @@ export default function Contact() {
               </a>
 
               <a
-                href="#"
-                className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/40 hover:shadow-[0_0_15px_rgba(6,182,212,0.3)] transition-all"
+                href={siteConfig.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-pink-400 hover:border-pink-500/40 hover:shadow-[0_0_15px_rgba(236,72,153,0.3)] transition-all"
                 aria-label="Instagram Profile"
               >
                 <Camera className="w-5 h-5" />

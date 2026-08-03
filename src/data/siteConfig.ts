@@ -4,6 +4,8 @@ export const siteConfig = {
   phone: "+91 99893 91930",
   email: "hello@teamaurora.ai",
   whatsappNumber: "919989391930",
+  instagramUrl: "https://www.instagram.com/ajay_teamaurora?igsh=Zzluc3hnNjNrY2c0",
+  githubUrl: "https://github.com/ajay-Ai-Ds",
   hero: {
     title: "TeamAurora.AI",
     subheading: "by Ajay — Building Digital Experiences with AI",
@@ -12,8 +14,9 @@ export const siteConfig = {
   navLinks: [
     { name: "Home", href: "#hero" },
     { name: "About", href: "#about" },
-    { name: "Portfolio", href: "#portfolio" },
+    { name: "Video", href: "#video" },
     { name: "Skills", href: "#skills" },
+    { name: "Portfolio", href: "#portfolio" },
     { name: "Results", href: "#results" },
     { name: "Contact", href: "#contact" },
   ],

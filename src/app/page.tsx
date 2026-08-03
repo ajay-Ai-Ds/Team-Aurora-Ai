@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import VideoShowcase from "@/components/VideoShowcase";
 import TechStack from "@/components/TechStack";
 import Portfolio from "@/components/Portfolio";
 import Results from "@/components/Results";
@@ -39,10 +40,13 @@ export default function Home() {
       {/* About Section */}
       <About />
 
+      {/* Featured Video & Instagram Showcase */}
+      <VideoShowcase />
+
       {/* Tech Stack Showcase */}
       <TechStack />
 
-      {/* 11 Live Client Websites Portfolio Showcase */}
+      {/* 17 Live Client Websites Portfolio Showcase */}
       <Portfolio />
 
       {/* Impact & Results Metrics Section */}
