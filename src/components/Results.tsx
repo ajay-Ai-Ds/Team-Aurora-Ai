@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Globe, MapPin, Layers, Zap, TrendingUp, Sparkles, Trophy, LucideIcon } from "lucide-react";
+import { Globe, MapPin, Building2, Zap, TrendingUp, Sparkles, Trophy, LucideIcon, ShieldCheck } from "lucide-react";
 
 interface ResultCardProps {
   icon: LucideIcon;
@@ -74,9 +74,34 @@ function StatCard({ icon: Icon, value, suffix, title, subtitle, badge, delay = 0
   );
 }
 
+const poweredBusinesses = [
+  "AJ Safe Net Solutions",
+  "Ammu Safety Nets",
+  "Bhairava Safety Nets",
+  "Chaithra Safety Nets",
+  "Ganga Safety Nets",
+  "Jagath Safety Nets",
+  "Joy Invisible Grills",
+  "Raju Invisible Grills",
+  "Ramya Sri Invisible Grills",
+  "Shiva Sai Safety Nets",
+  "Sri Ganesha Enterprises",
+  "Swastik Safety Nets",
+  "VKR Enterprises",
+  "Sravani Netting Solutions",
+  "Priyanka Enterprises Hyderabad",
+  "Quality Enterprises",
+  "Aegis Nets Chennai",
+  "Shyam Enterprises Bangalore",
+  "SVR Enterprises Chennai",
+  "BMC Safety Nets",
+];
+
 export default function Results() {
+  const marqueeItems = [...poweredBusinesses, ...poweredBusinesses];
+
   return (
-    <section id="results" className="py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative">
+    <section id="results" className="py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative overflow-hidden">
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -110,48 +135,51 @@ export default function Results() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="font-inter text-slate-400 text-base sm:text-lg"
         >
-          From concept to deployment to measurable client growth
+          Proven scale across websites, Meta advertising campaigns, and local business growth
         </motion.p>
       </div>
 
       {/* 3x2 Grid of Stat Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-20">
+        <StatCard
+          icon={TrendingUp}
+          value={49}
+          suffix="+"
+          title="Meta Ads Accounts Managed"
+          subtitle="Data-driven ad funnels & conversion tracking"
+          badge="Verified Scale"
+          delay={0}
+        />
         <StatCard
           icon={Globe}
           value={11}
+          suffix="+"
           title="Websites Delivered"
           subtitle="Fully custom, high-converting platforms"
-          delay={0}
+          delay={0.1}
         />
         <StatCard
           icon={MapPin}
           value={5}
+          suffix="+"
           title="Cities Across India"
           subtitle="Chennai, Hyderabad, Bangalore, Vizag & more"
-          delay={0.1}
+          delay={0.2}
         />
         <StatCard
-          icon={Layers}
-          value={18}
+          icon={Building2}
+          value={50}
           suffix="+"
-          title="Services Per Site Average"
-          subtitle="In-depth service cataloging & architecture"
-          delay={0.2}
+          title="Total Businesses Served"
+          subtitle="Empowering local service providers nationwide"
+          delay={0.3}
         />
         <StatCard
           icon={Zap}
           value={100}
           suffix="%"
-          title="Deployed on Vercel"
+          title="Deployed on Production"
           subtitle="Serverless global edge network hosting"
-          delay={0.3}
-        />
-        <StatCard
-          icon={TrendingUp}
-          value="Meta Ads"
-          title="Campaign Case Studies"
-          subtitle="Data-driven ad funnels & conversion tracking"
-          badge="Updating Soon"
           delay={0.4}
         />
         <StatCard
@@ -161,6 +189,43 @@ export default function Results() {
           subtitle="Rapid iteration powered by Claude & Antigravity"
           delay={0.5}
         />
+      </div>
+
+      {/* Industries We Power - Infinite Marquee Ticker */}
+      <div className="pt-8 border-t border-slate-900/80">
+        <div className="text-center mb-8">
+          <span className="font-space text-xs font-semibold uppercase tracking-widest text-cyan-400/90 flex items-center justify-center gap-2">
+            <ShieldCheck className="w-4 h-4 text-cyan-400" />
+            <span>Businesses & Clients Powered By TeamAurora.AI</span>
+          </span>
+        </div>
+
+        {/* Marquee Track */}
+        <div className="relative w-full overflow-hidden group py-4">
+          {/* Left & Right Gradient Shadows */}
+          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#0A0A0F] to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#0A0A0F] to-transparent z-10 pointer-events-none" />
+
+          <motion.div
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{
+              duration: 35,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            className="flex items-center gap-4 w-max group-hover:[animation-play-state:paused]"
+          >
+            {marqueeItems.map((name, index) => (
+              <div
+                key={`${name}-${index}`}
+                className="px-4 py-2 rounded-full bg-[#0A0A0F]/90 border border-cyan-500/20 text-slate-200 hover:text-cyan-300 hover:border-cyan-500/50 text-xs font-inter font-medium backdrop-blur-md shadow-[0_0_15px_rgba(6,182,212,0.1)] transition-all flex items-center gap-2 whitespace-nowrap"
+              >
+                <div className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+                <span>{name}</span>
+              </div>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </section>
   );
