@@ -40,7 +40,7 @@ export default function Portfolio() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="font-space text-4xl sm:text-6xl font-extrabold text-white tracking-tight"
         >
-          11 Live Client <span className="text-cyan-400 text-glow-cyan">Websites</span>
+          17 Live Client <span className="text-pink-400 text-glow-pink">Websites & Projects</span>
         </motion.h2>
 
         <motion.p
@@ -48,7 +48,7 @@ export default function Portfolio() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="font-inter text-slate-400 text-base sm:text-lg max-w-2xl mx-auto"
+          className="font-inter text-slate-300 text-base sm:text-lg max-w-2xl mx-auto"
         >
           Real businesses. Real results. Fully designed, built, and deployed using AI-assisted development.
         </motion.p>
@@ -60,13 +60,13 @@ export default function Portfolio() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.25 }}
-        className="mb-12 p-6 rounded-2xl bg-[#0A0A0F]/90 border border-cyan-500/20 backdrop-blur-xl shadow-[0_0_25px_rgba(6,182,212,0.1)] grid grid-cols-2 md:grid-cols-4 gap-6 text-center"
+        className="mb-12 p-6 rounded-2xl bg-[#060814]/90 border border-purple-500/25 backdrop-blur-2xl shadow-[0_0_30px_rgba(139,92,246,0.15)] grid grid-cols-2 md:grid-cols-4 gap-6 text-center"
       >
         {[
-          { label: "11 Websites Built", sub: "Production Deployed" },
+          { label: "17+ Projects Built", sub: "Production Deployed" },
           { label: "100% Satisfaction", sub: "Real Client Growth" },
           { label: "AI-Powered", sub: "Speed & Excellence" },
-          { label: "5 Cities Across India", sub: "Hyderabad, Chennai, etc." },
+          { label: "5+ Cities Across India", sub: "Hyderabad, Chennai, etc." },
         ].map((stat, idx) => (
           <div key={idx} className="space-y-1">
             <div className="font-space font-bold text-lg sm:text-xl text-cyan-300 flex items-center justify-center gap-1.5">

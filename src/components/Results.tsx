@@ -152,7 +152,7 @@ export default function Results() {
         />
         <StatCard
           icon={Globe}
-          value={11}
+          value={17}
           suffix="+"
           title="Websites Delivered"
           subtitle="Fully custom, high-converting platforms"
