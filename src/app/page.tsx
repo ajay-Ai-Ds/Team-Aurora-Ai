@@ -2,10 +2,13 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import AudioJourney from "@/components/AudioJourney";
+import InvestmentShowcase from "@/components/InvestmentShowcase";
 import VideoShowcase from "@/components/VideoShowcase";
 import TechStack from "@/components/TechStack";
 import VibeCoding3DShowcase from "@/components/VibeCoding3DShowcase";
+import AICostCalculator from "@/components/AICostCalculator";
 import Portfolio from "@/components/Portfolio";
+import ClientMap3D from "@/components/ClientMap3D";
 import Results from "@/components/Results";
 import MetaAdsShowcase from "@/components/MetaAdsShowcase";
 import Reviews from "@/components/Reviews";
@@ -13,6 +16,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import FloatingAudioPlayer from "@/components/FloatingAudioPlayer";
+import LiveNotificationToast from "@/components/LiveNotificationToast";
 import GlobalBackground3D from "@/components/GlobalBackground3D";
 import CustomCursor from "@/components/CustomCursor";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -35,6 +39,9 @@ export default function Home() {
       {/* Vertical Scroll Progress Bar */}
       <ScrollProgress />
 
+      {/* Real-Time Live Activity Toast Ticker */}
+      <LiveNotificationToast />
+
       {/* Masterclass Navbar */}
       <Navbar />
 
@@ -47,6 +54,9 @@ export default function Home() {
       {/* Founder Story & Dual-Language Audio Journey */}
       <AudioJourney />
 
+      {/* Zerodha Stocks & Mutual Funds Investment Proof Showcase */}
+      <InvestmentShowcase />
+
       {/* Featured Video & Instagram Showcase */}
       <VideoShowcase />
 
@@ -56,8 +66,14 @@ export default function Home() {
       {/* 3D Vibe Coding & Unlimited Income Showcase */}
       <VibeCoding3DShowcase />
 
+      {/* Interactive AI Cost & Lead ROI Calculator */}
+      <AICostCalculator />
+
       {/* 17 Live Client Websites Portfolio Showcase */}
       <Portfolio />
+
+      {/* 3D Nationwide Client Map */}
+      <ClientMap3D />
 
       {/* Impact & Results Metrics Section */}
       <Results />
