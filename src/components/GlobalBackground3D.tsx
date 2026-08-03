@@ -8,7 +8,7 @@ import dynamic from "next/dynamic";
 
 function BackgroundParticles({ isMobile }: { isMobile: boolean }) {
   const pointsRef = useRef<THREE.Points>(null!);
-  const count = isMobile ? 120 : 300;
+  const count = isMobile ? 60 : 150;
 
   const { positions, colors } = useMemo(() => {
     const pos = new Float32Array(count * 3);
@@ -31,8 +31,7 @@ function BackgroundParticles({ isMobile }: { isMobile: boolean }) {
 
   useFrame((_, delta) => {
     if (pointsRef.current) {
-      pointsRef.current.rotation.y += delta * 0.015;
-      pointsRef.current.rotation.x += delta * 0.008;
+      pointsRef.current.rotation.y += delta * 0.01;
     }
   });
 
@@ -43,10 +42,10 @@ function BackgroundParticles({ isMobile }: { isMobile: boolean }) {
         <bufferAttribute attach="attributes-color" args={[colors, 3]} />
       </bufferGeometry>
       <pointsMaterial
-        size={0.07}
+        size={0.06}
         vertexColors
         transparent
-        opacity={0.35}
+        opacity={0.25}
         blending={THREE.AdditiveBlending}
       />
     </points>
@@ -67,8 +66,8 @@ function GlobalCanvas() {
     <div className="fixed inset-0 pointer-events-none z-0">
       <Canvas
         camera={{ position: [0, 0, 15], fov: 60 }}
-        dpr={[1, 1.5]}
-        gl={{ antialias: false, alpha: true }}
+        dpr={1}
+        gl={{ antialias: false, alpha: true, powerPreference: "high-performance" }}
       >
         <AdaptiveDpr />
         <BackgroundParticles isMobile={isMobile} />

@@ -9,8 +9,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Multi-Color Particle Field
-function MultiColorParticles({ count = 1200 }) {
+// Ultra-Optimized Particle Field
+function MultiColorParticles({ count = 400 }) {
   const pointsRef = useRef<THREE.Points>(null!);
   const { positions, colors } = useMemo(() => {
     const pos = new Float32Array(count * 3);
@@ -21,13 +21,12 @@ function MultiColorParticles({ count = 1200 }) {
       new THREE.Color("#8B5CF6"), // Purple
       new THREE.Color("#06B6D4"), // Cyan
       new THREE.Color("#10B981"), // Emerald
-      new THREE.Color("#F59E0B"), // Amber
     ];
 
     for (let i = 0; i < count; i++) {
-      pos[i * 3] = (Math.random() - 0.5) * 50;
-      pos[i * 3 + 1] = (Math.random() - 0.5) * 50;
-      pos[i * 3 + 2] = (Math.random() - 0.5) * 60; // Spans across all 3 stages
+      pos[i * 3] = (Math.random() - 0.5) * 45;
+      pos[i * 3 + 1] = (Math.random() - 0.5) * 45;
+      pos[i * 3 + 2] = (Math.random() - 0.5) * 60;
 
       const randomColor = palette[Math.floor(Math.random() * palette.length)];
       col[i * 3] = randomColor.r;
@@ -39,8 +38,7 @@ function MultiColorParticles({ count = 1200 }) {
 
   useFrame((_, delta) => {
     if (pointsRef.current) {
-      pointsRef.current.rotation.y += delta * 0.03;
-      pointsRef.current.rotation.x += delta * 0.01;
+      pointsRef.current.rotation.y += delta * 0.02;
     }
   });
 
@@ -51,10 +49,10 @@ function MultiColorParticles({ count = 1200 }) {
         <bufferAttribute attach="attributes-color" args={[colors, 3]} />
       </bufferGeometry>
       <pointsMaterial
-        size={0.09}
+        size={0.08}
         vertexColors
         transparent
-        opacity={0.7}
+        opacity={0.65}
         blending={THREE.AdditiveBlending}
       />
     </points>
@@ -65,73 +63,48 @@ function MultiColorParticles({ count = 1200 }) {
 function GlobeStage({ isMobile }: { isMobile: boolean }) {
   const globeGroupRef = useRef<THREE.Group>(null!);
   const ringRef = useRef<THREE.Mesh>(null!);
-  const atmosphereRef = useRef<THREE.Mesh>(null!);
 
   useFrame((_, delta) => {
     if (globeGroupRef.current) {
-      globeGroupRef.current.rotation.y += delta * 0.25;
+      globeGroupRef.current.rotation.y += delta * 0.2;
     }
     if (ringRef.current) {
-      ringRef.current.rotation.z += delta * 0.2;
-      ringRef.current.rotation.x += delta * 0.1;
-    }
-    if (atmosphereRef.current) {
-      atmosphereRef.current.rotation.y -= delta * 0.15;
+      ringRef.current.rotation.z += delta * 0.15;
     }
   });
 
   return (
     <group ref={globeGroupRef} position={[0, 0, 0]}>
-      {/* Central Holographic Globe Core */}
+      {/* Central Globe Core */}
       <mesh>
-        <sphereGeometry args={[2.5, isMobile ? 24 : 48, isMobile ? 24 : 48]} />
-        <meshStandardMaterial
-          wireframe
-          color="#EC4899"
-          emissive="#EC4899"
-          emissiveIntensity={0.6}
-          roughness={0.1}
-        />
+        <sphereGeometry args={[2.5, isMobile ? 16 : 32, isMobile ? 16 : 32]} />
+        <meshBasicMaterial wireframe color="#EC4899" transparent opacity={0.6} />
       </mesh>
 
-      {/* Inner Glowing Atmosphere Shell */}
-      <mesh ref={atmosphereRef}>
-        <sphereGeometry args={[2.2, 32, 32]} />
-        <meshStandardMaterial
-          color="#06B6D4"
-          emissive="#06B6D4"
-          emissiveIntensity={0.8}
-          transparent
-          opacity={0.4}
-        />
+      {/* Atmosphere Shell */}
+      <mesh>
+        <sphereGeometry args={[2.2, 24, 24]} />
+        <meshBasicMaterial color="#06B6D4" transparent opacity={0.35} />
       </mesh>
 
-      {/* Orbiting Tech Satellites Ring */}
+      {/* Orbiting Satellites Ring */}
       <mesh ref={ringRef}>
-        <torusGeometry args={[3.8, 0.08, 16, 100]} />
-        <meshStandardMaterial
-          color="#8B5CF6"
-          emissive="#8B5CF6"
-          emissiveIntensity={0.7}
-        />
+        <torusGeometry args={[3.8, 0.06, 12, 64]} />
+        <meshBasicMaterial color="#8B5CF6" transparent opacity={0.7} />
       </mesh>
 
-      {/* Orbiting Satellite Nodes */}
-      {[0, 1.25, 2.5, 3.75, 5].map((angle, idx) => (
+      {/* Satellite Nodes */}
+      {[0, 1.5, 3.0, 4.5].map((angle, idx) => (
         <mesh
           key={idx}
           position={[
             Math.cos(angle) * 3.8,
-            Math.sin(angle) * 1.5,
+            Math.sin(angle) * 1.2,
             Math.sin(angle) * 3.8,
           ]}
         >
-          <icosahedronGeometry args={[0.25, 0]} />
-          <meshStandardMaterial
-            color={idx % 2 === 0 ? "#F59E0B" : "#10B981"}
-            emissive={idx % 2 === 0 ? "#F59E0B" : "#10B981"}
-            emissiveIntensity={0.9}
-          />
+          <icosahedronGeometry args={[0.22, 0]} />
+          <meshBasicMaterial color={idx % 2 === 0 ? "#F59E0B" : "#10B981"} />
         </mesh>
       ))}
     </group>
@@ -141,250 +114,129 @@ function GlobeStage({ isMobile }: { isMobile: boolean }) {
 // Stage 2: 3D Computer Workstation & Coding Setup
 function ComputerSetupStage() {
   const computerRef = useRef<THREE.Group>(null!);
-  const screenGlowRef = useRef<THREE.Mesh>(null!);
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
     if (computerRef.current) {
-      computerRef.current.rotation.y = Math.sin(t * 0.5) * 0.08;
-      computerRef.current.position.y = -1 + Math.sin(t * 1.5) * 0.12;
-    }
-    if (screenGlowRef.current) {
-      (screenGlowRef.current.material as THREE.MeshStandardMaterial).emissiveIntensity =
-        0.8 + Math.sin(t * 3) * 0.3;
+      computerRef.current.rotation.y = Math.sin(t * 0.4) * 0.06;
     }
   });
 
   return (
     <group ref={computerRef} position={[0, -1, -11]}>
-      {/* Monitor Outer Bezel */}
+      {/* Monitor Bezel */}
       <mesh position={[0, 1.8, 0]}>
         <boxGeometry args={[5.2, 3.2, 0.2]} />
-        <meshStandardMaterial color="#1E293B" metalness={0.8} roughness={0.2} />
+        <meshStandardMaterial color="#1E293B" metalness={0.7} roughness={0.3} />
       </mesh>
 
-      {/* Monitor Screen (Glowing Code Display) */}
-      <mesh ref={screenGlowRef} position={[0, 1.8, 0.11]}>
+      {/* Monitor Screen Display */}
+      <mesh position={[0, 1.8, 0.11]}>
         <planeGeometry args={[4.8, 2.8]} />
-        <meshStandardMaterial
-          color="#06B6D4"
-          emissive="#06B6D4"
-          emissiveIntensity={0.9}
-          roughness={0.1}
-        />
+        <meshBasicMaterial color="#06B6D4" transparent opacity={0.9} />
       </mesh>
 
-      {/* Animated Screen Code Lines Overlay */}
+      {/* Code Lines */}
       <group position={[0, 1.8, 0.12]}>
-        {[-0.9, -0.4, 0.1, 0.6].map((yPos, i) => (
+        {[-0.8, -0.3, 0.2, 0.7].map((yPos, i) => (
           <mesh key={i} position={[-0.8 + (i % 2) * 0.3, yPos, 0]}>
-            <planeGeometry args={[2.5 - i * 0.3, 0.15]} />
-            <meshBasicMaterial
-              color={i % 2 === 0 ? "#EC4899" : "#10B981"}
-              transparent
-              opacity={0.85}
-            />
+            <planeGeometry args={[2.4 - i * 0.3, 0.14]} />
+            <meshBasicMaterial color={i % 2 === 0 ? "#EC4899" : "#10B981"} />
           </mesh>
         ))}
       </group>
 
-      {/* Monitor Stand */}
+      {/* Stand & Keyboard */}
       <mesh position={[0, 0.1, 0]}>
         <boxGeometry args={[0.6, 1.4, 0.3]} />
-        <meshStandardMaterial color="#0F172A" metalness={0.9} roughness={0.1} />
+        <meshStandardMaterial color="#0F172A" />
       </mesh>
-      <mesh position={[0, -0.6, 0]}>
-        <boxGeometry args={[2.2, 0.15, 1.4]} />
-        <meshStandardMaterial color="#1E293B" metalness={0.8} roughness={0.3} />
-      </mesh>
-
-      {/* Keyboard Base */}
       <mesh position={[0, -0.55, 1.2]}>
         <boxGeometry args={[3.8, 0.12, 1.4]} />
-        <meshStandardMaterial color="#0F172A" metalness={0.7} roughness={0.3} />
+        <meshStandardMaterial color="#0F172A" />
       </mesh>
 
-      {/* Glowing Keycaps Grid */}
-      <group position={[0, -0.47, 1.2]}>
-        <mesh>
-          <boxGeometry args={[3.4, 0.08, 1.1]} />
-          <meshStandardMaterial
-            color="#8B5CF6"
-            emissive="#8B5CF6"
-            emissiveIntensity={0.5}
-            wireframe
-          />
-        </mesh>
-      </group>
-
       {/* Floating 3D Code Labels */}
-      <Float speed={2} rotationIntensity={1} floatIntensity={1.5}>
-        <Text
-          position={[-3.2, 2.5, 1]}
-          fontSize={0.45}
-          color="#EC4899"
-          anchorX="center"
-          anchorY="middle"
-        >
+      <Float speed={1.5} rotationIntensity={0.5} floatIntensity={1}>
+        <Text position={[-3.2, 2.5, 1]} fontSize={0.4} color="#EC4899" anchorX="center" anchorY="middle">
           {"<TeamAurora.AI />"}
         </Text>
       </Float>
-
-      <Float speed={2.5} rotationIntensity={1.2} floatIntensity={2}>
-        <Text
-          position={[3.4, 2.2, 0.5]}
-          fontSize={0.4}
-          color="#10B981"
-          anchorX="center"
-          anchorY="middle"
-        >
+      <Float speed={2} rotationIntensity={0.6} floatIntensity={1.2}>
+        <Text position={[3.4, 2.2, 0.5]} fontSize={0.38} color="#10B981" anchorX="center" anchorY="middle">
           {"AI.build(FullStack)"}
         </Text>
       </Float>
-
-      {/* Ambient Neon Desk Lights */}
-      <pointLight position={[-3, 0, -2]} intensity={2.5} color="#EC4899" />
-      <pointLight position={[3, 0, -2]} intensity={2.5} color="#06B6D4" />
     </group>
   );
 }
 
-// Stage 3: Freelance Digital Build Hub & 3D Website Builder Setup
+// Stage 3: Freelance Digital Build Hub
 function FreelanceBuildStage() {
   const hubRef = useRef<THREE.Group>(null!);
-  const cursorRef = useRef<THREE.Group>(null!);
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
     if (hubRef.current) {
-      hubRef.current.rotation.y = -0.15 + Math.sin(t * 0.4) * 0.1;
-      hubRef.current.position.y = -0.5 + Math.sin(t * 1.2) * 0.15;
-    }
-    if (cursorRef.current) {
-      // 3D Pointer Cursor clicking animation
-      cursorRef.current.position.x = 0.8 + Math.sin(t * 2) * 0.2;
-      cursorRef.current.position.y = -0.8 + Math.cos(t * 2) * 0.15;
+      hubRef.current.rotation.y = -0.1 + Math.sin(t * 0.3) * 0.08;
     }
   });
 
   return (
     <group ref={hubRef} position={[0, -0.5, -23]}>
-      {/* Central Floating 3D Website Layout Window */}
+      {/* Website Window Canvas */}
       <mesh position={[0, 1.2, 0]}>
-        <boxGeometry args={[6.4, 3.8, 0.15]} />
-        <meshStandardMaterial color="#0A0A0F" metalness={0.9} roughness={0.1} />
+        <boxGeometry args={[6.2, 3.6, 0.12]} />
+        <meshStandardMaterial color="#0A0A0F" />
+      </mesh>
+      <mesh position={[0, 1.2, 0.07]}>
+        <planeGeometry args={[6.0, 3.4]} />
+        <meshBasicMaterial color="#10B981" wireframe transparent opacity={0.35} />
       </mesh>
 
-      {/* Website Window Glowing Border & Header */}
-      <mesh position={[0, 1.2, 0.08]}>
-        <planeGeometry args={[6.2, 3.6]} />
-        <meshStandardMaterial
-          color="#10B981"
-          emissive="#10B981"
-          emissiveIntensity={0.4}
-          wireframe
-        />
-      </mesh>
-
-      {/* Website Wireframe Content Elements (Hero Banner, Image Grid, Buttons) */}
-      <group position={[0, 1.2, 0.12]}>
-        {/* Header Bar Wireframe */}
-        <mesh position={[0, 1.4, 0]}>
-          <planeGeometry args={[5.6, 0.3]} />
-          <meshBasicMaterial color="#EC4899" transparent opacity={0.8} />
+      {/* Wireframe Blocks */}
+      <group position={[0, 1.2, 0.1]}>
+        <mesh position={[0, 1.3, 0]}>
+          <planeGeometry args={[5.4, 0.28]} />
+          <meshBasicMaterial color="#EC4899" />
         </mesh>
-        {/* Main Hero Block */}
-        <mesh position={[-1.2, 0.4, 0]}>
-          <planeGeometry args={[2.8, 1.2]} />
-          <meshBasicMaterial color="#06B6D4" transparent opacity={0.7} />
+        <mesh position={[-1.2, 0.3, 0]}>
+          <planeGeometry args={[2.6, 1.2]} />
+          <meshBasicMaterial color="#06B6D4" />
         </mesh>
-        {/* Content Sidebar Grid */}
-        <mesh position={[1.4, 0.4, 0]}>
-          <planeGeometry args={[2.0, 1.2]} />
-          <meshBasicMaterial color="#8B5CF6" transparent opacity={0.7} />
+        <mesh position={[1.4, 0.3, 0]}>
+          <planeGeometry args={[1.8, 1.2]} />
+          <meshBasicMaterial color="#8B5CF6" />
         </mesh>
       </group>
 
-      {/* 3D Glowing "DEPLOY CLIENT SITE" Button */}
-      <group position={[0, -0.8, 0.5]}>
+      {/* 3D Deploy Button */}
+      <group position={[0, -0.8, 0.4]}>
         <mesh>
-          <boxGeometry args={[3.6, 0.7, 0.2]} />
-          <meshStandardMaterial
-            color="#10B981"
-            emissive="#10B981"
-            emissiveIntensity={0.8}
-            roughness={0.2}
-          />
+          <boxGeometry args={[3.4, 0.65, 0.15]} />
+          <meshBasicMaterial color="#10B981" />
         </mesh>
-        <Text
-          position={[0, 0, 0.12]}
-          fontSize={0.28}
-          color="#FFFFFF"
-          anchorX="center"
-          anchorY="middle"
-        >
+        <Text position={[0, 0, 0.1]} fontSize={0.26} color="#FFFFFF" anchorX="center" anchorY="middle">
           {"✓ DEPLOY CLIENT SITE"}
         </Text>
       </group>
 
-      {/* Glowing 3D Pointer Cursor */}
-      <group ref={cursorRef} position={[1.2, -0.7, 0.7]} rotation={[0, 0, -Math.PI * 0.15]}>
-        <mesh>
-          <coneGeometry args={[0.3, 0.8, 4]} />
-          <meshStandardMaterial
-            color="#EC4899"
-            emissive="#EC4899"
-            emissiveIntensity={1}
-          />
-        </mesh>
-      </group>
-
-      {/* Floating Freelance Badges */}
-      <Float speed={2} rotationIntensity={1.2} floatIntensity={1.8}>
-        <Text
-          position={[-3.8, 2.8, 1]}
-          fontSize={0.42}
-          color="#F59E0B"
-          anchorX="center"
-          anchorY="middle"
-        >
-          {"11 Live Client Sites"}
+      {/* Floating Badges */}
+      <Float speed={1.5} rotationIntensity={0.5} floatIntensity={1}>
+        <Text position={[-3.6, 2.6, 1]} fontSize={0.38} color="#F59E0B" anchorX="center" anchorY="middle">
+          {"17+ Live Client Sites"}
         </Text>
       </Float>
-
-      <Float speed={2.4} rotationIntensity={1.5} floatIntensity={2}>
-        <Text
-          position={[3.8, 2.6, 1]}
-          fontSize={0.38}
-          color="#EC4899"
-          anchorX="center"
-          anchorY="middle"
-        >
+      <Float speed={2} rotationIntensity={0.6} floatIntensity={1.2}>
+        <Text position={[3.6, 2.4, 1]} fontSize={0.36} color="#EC4899" anchorX="center" anchorY="middle">
           {"WhatsApp + SEO Integrated"}
         </Text>
       </Float>
-
-      <Float speed={1.9} rotationIntensity={1} floatIntensity={1.5}>
-        <Text
-          position={[-3.5, -1.2, 1.2]}
-          fontSize={0.35}
-          color="#06B6D4"
-          anchorX="center"
-          anchorY="middle"
-        >
-          {"49+ Meta Ads Managed"}
-        </Text>
-      </Float>
-
-      {/* Ambient Freelance Stage Lights */}
-      <pointLight position={[0, 2, -2]} intensity={3} color="#10B981" />
-      <pointLight position={[-4, -1, 1]} intensity={2.5} color="#EC4899" />
-      <pointLight position={[4, -1, 1]} intensity={2.5} color="#F59E0B" />
     </group>
   );
 }
 
-// 3-Stage Scroll Camera Controller: Globe -> Computer Setup -> Freelance Build Hub
+// Butter-Smooth GSAP Scroll Camera Controller
 function ScrollCameraController({ heroContainerRef }: { heroContainerRef: React.RefObject<HTMLDivElement | null> }) {
   const { camera } = useThree();
 
@@ -397,23 +249,22 @@ function ScrollCameraController({ heroContainerRef }: { heroContainerRef: React.
           trigger: heroContainerRef.current,
           start: "top top",
           end: "bottom top",
-          scrub: 1.2,
+          scrub: 0.5, // Lightweight smooth lerp
         },
       });
 
-      // Stage 1 (Globe z=10 -> z=0) -> Stage 2 (Computer Setup z=-11) -> Stage 3 (Freelance Build Hub z=-22)
       tl.to(camera.position, {
         z: -11,
-        y: 0.5,
+        y: 0.4,
         ease: "none",
       })
-        .to(camera.rotation, { x: -0.05, y: Math.PI * 0.08, ease: "none" }, 0)
+        .to(camera.rotation, { x: -0.05, y: Math.PI * 0.06, ease: "none" }, 0)
         .to(camera.position, {
           z: -22,
           y: 0,
           ease: "none",
         })
-        .to(camera.rotation, { x: 0.05, y: -Math.PI * 0.05, ease: "none" }, ">");
+        .to(camera.rotation, { x: 0.04, y: -Math.PI * 0.04, ease: "none" }, ">");
     }, heroContainerRef);
 
     return () => ctx.revert();
@@ -440,16 +291,15 @@ export default function Hero3D({ heroContainerRef }: Hero3DProps) {
     <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
       <Canvas
         camera={{ position: [0, 0, 10], fov: 60 }}
-        dpr={[1, 2]}
-        gl={{ antialias: true, alpha: true }}
+        dpr={1}
+        gl={{ antialias: false, alpha: true, powerPreference: "high-performance" }}
       >
-        <AdaptiveDpr pixelated />
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[10, 15, 10]} intensity={1.5} color="#EC4899" />
-        <directionalLight position={[-10, -10, -5]} intensity={1.5} color="#06B6D4" />
-        <pointLight position={[0, 0, 5]} intensity={1} color="#8B5CF6" />
+        <AdaptiveDpr />
+        <ambientLight intensity={0.6} />
+        <directionalLight position={[10, 10, 10]} intensity={1.2} color="#EC4899" />
+        <directionalLight position={[-10, -10, -5]} intensity={1.2} color="#06B6D4" />
 
-        <MultiColorParticles count={isMobile ? 500 : 1200} />
+        <MultiColorParticles count={isMobile ? 150 : 350} />
         <GlobeStage isMobile={isMobile} />
         <ComputerSetupStage />
         <FreelanceBuildStage />
