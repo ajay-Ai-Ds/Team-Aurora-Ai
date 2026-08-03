@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import AudioJourney from "@/components/AudioJourney";
 import VideoShowcase from "@/components/VideoShowcase";
 import TechStack from "@/components/TechStack";
 import VibeCoding3DShowcase from "@/components/VibeCoding3DShowcase";
@@ -41,6 +42,9 @@ export default function Home() {
 
       {/* About Section */}
       <About />
+
+      {/* Founder Story & Dual-Language Audio Journey */}
+      <AudioJourney />
 
       {/* Featured Video & Instagram Showcase */}
       <VideoShowcase />
