@@ -6,6 +6,7 @@ import TechStack from "@/components/TechStack";
 import VibeCoding3DShowcase from "@/components/VibeCoding3DShowcase";
 import Portfolio from "@/components/Portfolio";
 import Results from "@/components/Results";
+import MetaAdsShowcase from "@/components/MetaAdsShowcase";
 import Reviews from "@/components/Reviews";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -55,6 +56,9 @@ export default function Home() {
 
       {/* Impact & Results Metrics Section */}
       <Results />
+
+      {/* Meta Ads Managed Showcase Section */}
+      <MetaAdsShowcase />
 
       {/* Client Feedback & Reviews Section */}
       <Reviews />
