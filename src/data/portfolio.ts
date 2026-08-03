@@ -6,6 +6,7 @@ export interface PortfolioProject {
   category: "Service Website" | "E-Commerce + Admin Dashboard";
   liveUrl?: string;
   githubUrl?: string;
+  imageUrl: string;
   gradient: string;
 }
 
@@ -17,7 +18,8 @@ export const portfolioProjects: PortfolioProject[] = [
     tech: ["Next.js", "Tailwind CSS", "Vercel"],
     category: "Service Website",
     liveUrl: "https://sravani-netting-solutions.vercel.app/",
-    gradient: "from-cyan-900/70 via-slate-900 to-blue-950/80",
+    imageUrl: "/portfolio/sravani.jpg",
+    gradient: "from-pink-900/70 via-slate-900 to-cyan-950/80",
   },
   {
     id: "priyanka-enterprises",
@@ -26,6 +28,7 @@ export const portfolioProjects: PortfolioProject[] = [
     tech: ["Next.js", "Tailwind CSS", "Vercel"],
     category: "Service Website",
     liveUrl: "https://www.priyankaenterpriseshyderabad.com/",
+    imageUrl: "/portfolio/priyanka.jpg",
     gradient: "from-blue-900/70 via-slate-900 to-indigo-950/80",
   },
   {
@@ -34,7 +37,8 @@ export const portfolioProjects: PortfolioProject[] = [
     description: "Full product catalog with shopping cart, WhatsApp checkout, cost estimator, and custom admin panel for order management.",
     tech: ["Next.js", "Tailwind CSS", "Custom Admin Auth", "Vercel"],
     category: "E-Commerce + Admin Dashboard",
-    gradient: "from-purple-900/70 via-slate-900 to-slate-950/80",
+    imageUrl: "/portfolio/quality.jpg",
+    gradient: "from-purple-900/70 via-slate-900 to-pink-950/80",
   },
   {
     id: "aegis-nets",
@@ -42,6 +46,7 @@ export const portfolioProjects: PortfolioProject[] = [
     description: "Premium safety nets and invisible grills company website for Chennai, featuring 14 service pages and full SEO optimization.",
     tech: ["Next.js", "Tailwind CSS", "Vercel", "JSON-LD SEO"],
     category: "Service Website",
+    imageUrl: "/portfolio/aegis.jpg",
     gradient: "from-emerald-900/70 via-slate-900 to-cyan-950/80",
   },
   {
@@ -50,6 +55,7 @@ export const portfolioProjects: PortfolioProject[] = [
     description: "Bangalore-based safety solutions company with 18 services, premium mega-menu navigation, and custom brand identity.",
     tech: ["Next.js", "Tailwind CSS", "Framer Motion", "Vercel"],
     category: "Service Website",
+    imageUrl: "/portfolio/shyam.jpg",
     gradient: "from-amber-900/70 via-slate-900 to-slate-950/80",
   },
   {
@@ -59,6 +65,7 @@ export const portfolioProjects: PortfolioProject[] = [
     tech: ["Next.js", "Tailwind CSS", "Framer Motion", "Vercel"],
     category: "Service Website",
     liveUrl: "https://svr-enterprises-chennai.vercel.app/",
+    imageUrl: "/portfolio/sravani.jpg",
     gradient: "from-sky-900/70 via-slate-900 to-blue-950/80",
   },
   {
@@ -68,6 +75,7 @@ export const portfolioProjects: PortfolioProject[] = [
     tech: ["TypeScript", "Next.js", "Vercel"],
     category: "Service Website",
     githubUrl: "https://github.com/ajay-Ai-Ds/ajsafenetsolutions",
+    imageUrl: "/portfolio/aegis.jpg",
     gradient: "from-teal-900/70 via-slate-900 to-cyan-950/80",
   },
   {
@@ -77,6 +85,7 @@ export const portfolioProjects: PortfolioProject[] = [
     tech: ["TypeScript", "Next.js", "Vercel"],
     category: "Service Website",
     githubUrl: "https://github.com/ajay-Ai-Ds/Swathi-Safety-Nets",
+    imageUrl: "/portfolio/priyanka.jpg",
     gradient: "from-indigo-900/70 via-slate-900 to-purple-950/80",
   },
   {
@@ -86,6 +95,7 @@ export const portfolioProjects: PortfolioProject[] = [
     tech: ["TypeScript", "Next.js", "Vercel"],
     category: "Service Website",
     githubUrl: "https://github.com/ajay-Ai-Ds/nagamani-safety-nets",
+    imageUrl: "/portfolio/shyam.jpg",
     gradient: "from-blue-900/70 via-slate-900 to-slate-950/80",
   },
   {
@@ -95,6 +105,7 @@ export const portfolioProjects: PortfolioProject[] = [
     tech: ["TypeScript", "Next.js", "Vercel"],
     category: "Service Website",
     githubUrl: "https://github.com/ajay-Ai-Ds/BMC-Safety-Nets",
+    imageUrl: "/portfolio/quality.jpg",
     gradient: "from-cyan-900/70 via-slate-900 to-teal-950/80",
   },
   {
@@ -104,6 +115,7 @@ export const portfolioProjects: PortfolioProject[] = [
     tech: ["TypeScript", "Next.js", "Vercel"],
     category: "Service Website",
     githubUrl: "https://github.com/ajay-Ai-Ds/Apparao-Safety-Nets",
+    imageUrl: "/portfolio/sravani.jpg",
     gradient: "from-violet-900/70 via-slate-900 to-slate-950/80",
   },
 ];

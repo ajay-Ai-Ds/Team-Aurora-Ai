@@ -130,16 +130,24 @@ export default function Portfolio() {
                 </div>
               </div>
 
-              {/* Gradient Website Visual Canvas Placeholder */}
-              <div className={`relative h-44 w-full bg-gradient-to-br ${project.gradient} p-6 flex flex-col justify-between overflow-hidden group-hover:scale-105 transition-transform duration-500`}>
-                <div className="flex items-center justify-between">
-                  <span className="inline-block px-3 py-1 rounded-full bg-slate-950/70 border border-cyan-500/30 text-cyan-300 text-[11px] font-semibold tracking-wider font-inter">
+              {/* AI Website Preview Image Canvas */}
+              <div className="relative h-48 w-full overflow-hidden group">
+                <img
+                  src={project.imageUrl}
+                  alt={project.title}
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#060814] via-black/20 to-black/40 pointer-events-none" />
+                
+                <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none z-10">
+                  <span className="inline-block px-3 py-1 rounded-full bg-slate-950/85 border border-pink-500/40 text-pink-300 text-[11px] font-semibold tracking-wider font-inter backdrop-blur-md shadow-[0_0_15px_rgba(236,72,153,0.3)]">
                     {project.category}
                   </span>
-                  <Globe className="w-5 h-5 text-white/30 group-hover:text-cyan-400 transition-colors" />
+                  <Globe className="w-5 h-5 text-white/80 group-hover:text-cyan-400 transition-colors drop-shadow-md" />
                 </div>
-                <div>
-                  <h4 className="font-space font-extrabold text-xl text-white drop-shadow-md">
+
+                <div className="absolute bottom-3 left-3 right-3 pointer-events-none z-10">
+                  <h4 className="font-space font-extrabold text-xl text-white drop-shadow-lg">
                     {project.title}
                   </h4>
                 </div>
