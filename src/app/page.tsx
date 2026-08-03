@@ -12,6 +12,7 @@ import Reviews from "@/components/Reviews";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import FloatingAudioPlayer from "@/components/FloatingAudioPlayer";
 import GlobalBackground3D from "@/components/GlobalBackground3D";
 import CustomCursor from "@/components/CustomCursor";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -73,7 +74,10 @@ export default function Home() {
       {/* Footer */}
       <Footer />
 
-      {/* Floating WhatsApp CTA */}
+      {/* Fixed Floating Audio Button (Telugu Story) */}
+      <FloatingAudioPlayer />
+
+      {/* Universal Floating WhatsApp CTA */}
       <FloatingWhatsApp />
     </main>
   );
