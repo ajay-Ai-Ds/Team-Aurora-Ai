@@ -35,14 +35,20 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo */}
-          <a href="#hero" className="group flex flex-col items-start">
+          <motion.a
+            href="#hero"
+            whileHover={{ rotateY: 15, rotateX: -5, scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 300, damping: 15 }}
+            style={{ transformStyle: "preserve-3d" }}
+            className="group flex flex-col items-start cursor-pointer"
+          >
             <span className="font-space font-bold text-xl sm:text-2xl tracking-tight text-white group-hover:text-cyan-400 transition-colors flex items-center gap-1.5">
               TeamAurora<span className="text-cyan-400 font-extrabold text-glow-cyan">.AI</span>
             </span>
             <span className="text-[10px] tracking-widest text-cyan-300/80 font-inter uppercase font-semibold pl-0.5">
               {siteConfig.tagline}
             </span>
-          </a>
+          </motion.a>
 
           {/* Desktop Nav Links */}
           <nav className="hidden md:flex items-center space-x-8 font-inter">
