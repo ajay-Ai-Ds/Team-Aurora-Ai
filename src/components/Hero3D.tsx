@@ -59,91 +59,6 @@ function MultiColorParticles({ count = 400 }) {
   );
 }
 
-// Stage 0: 3D Multi-Page Project Windows Stage (Header Showcase)
-function MultiPage3DStage() {
-  const stageRef = useRef<THREE.Group>(null!);
-
-  useFrame((state) => {
-    const t = state.clock.getElapsedTime();
-    if (stageRef.current) {
-      stageRef.current.rotation.y = Math.sin(t * 0.3) * 0.1;
-    }
-  });
-
-  return (
-    <group ref={stageRef} position={[0, 1.8, 4]}>
-      {/* 3D Floating Website Page 1: SVR Enterprises (Service Engine) */}
-      <group position={[-3.2, 0.4, 0]} rotation={[0.05, 0.2, 0]}>
-        <mesh>
-          <boxGeometry args={[3.2, 2.2, 0.1]} />
-          <meshStandardMaterial color="#0A0A0F" />
-        </mesh>
-        <mesh position={[0, 0, 0.06]}>
-          <planeGeometry args={[3.0, 2.0]} />
-          <meshBasicMaterial color="#EC4899" wireframe transparent opacity={0.4} />
-        </mesh>
-        <group position={[0, 0.8, 0.07]}>
-          <mesh>
-            <planeGeometry args={[2.8, 0.2]} />
-            <meshBasicMaterial color="#EC4899" />
-          </mesh>
-        </group>
-        <Float speed={2} floatIntensity={0.8}>
-          <Text position={[0, 1.4, 0.2]} fontSize={0.24} color="#EC4899" anchorX="center">
-            {"[SVR Enterprises]"}
-          </Text>
-        </Float>
-      </group>
-
-      {/* 3D Floating Website Page 2: Quality Enterprises (E-Commerce + Admin) */}
-      <group position={[0, 0.8, 1]} rotation={[-0.05, 0, 0]}>
-        <mesh>
-          <boxGeometry args={[3.6, 2.4, 0.12]} />
-          <meshStandardMaterial color="#0F172A" metalness={0.8} />
-        </mesh>
-        <mesh position={[0, 0, 0.07]}>
-          <planeGeometry args={[3.4, 2.2]} />
-          <meshBasicMaterial color="#8B5CF6" wireframe transparent opacity={0.5} />
-        </mesh>
-        <group position={[0, 0.9, 0.08]}>
-          <mesh>
-            <planeGeometry args={[3.2, 0.22]} />
-            <meshBasicMaterial color="#8B5CF6" />
-          </mesh>
-        </group>
-        <Float speed={2.2} floatIntensity={1}>
-          <Text position={[0, 1.5, 0.2]} fontSize={0.26} color="#8B5CF6" anchorX="center">
-            {"[Quality E-Commerce]"}
-          </Text>
-        </Float>
-      </group>
-
-      {/* 3D Floating Website Page 3: Aegis Nets (SEO Local Business) */}
-      <group position={[3.2, 0.4, 0]} rotation={[0.05, -0.2, 0]}>
-        <mesh>
-          <boxGeometry args={[3.2, 2.2, 0.1]} />
-          <meshStandardMaterial color="#0A0A0F" />
-        </mesh>
-        <mesh position={[0, 0, 0.06]}>
-          <planeGeometry args={[3.0, 2.0]} />
-          <meshBasicMaterial color="#06B6D4" wireframe transparent opacity={0.4} />
-        </mesh>
-        <group position={[0, 0.8, 0.07]}>
-          <mesh>
-            <planeGeometry args={[2.8, 0.2]} />
-            <meshBasicMaterial color="#06B6D4" />
-          </mesh>
-        </group>
-        <Float speed={1.8} floatIntensity={0.9}>
-          <Text position={[0, 1.4, 0.2]} fontSize={0.24} color="#06B6D4" anchorX="center">
-            {"[Aegis Nets SEO]"}
-          </Text>
-        </Float>
-      </group>
-    </group>
-  );
-}
-
 // Stage 1: Holographic Tech Globe
 function GlobeStage({ isMobile }: { isMobile: boolean }) {
   const globeGroupRef = useRef<THREE.Group>(null!);
@@ -339,16 +254,11 @@ function ScrollCameraController({ heroContainerRef }: { heroContainerRef: React.
       });
 
       tl.to(camera.position, {
-        z: 0,
-        y: 0,
+        z: -11,
+        y: 0.4,
         ease: "none",
       })
-        .to(camera.position, {
-          z: -11,
-          y: 0.4,
-          ease: "none",
-        })
-        .to(camera.rotation, { x: -0.05, y: Math.PI * 0.06, ease: "none" }, "<")
+        .to(camera.rotation, { x: -0.05, y: Math.PI * 0.06, ease: "none" }, 0)
         .to(camera.position, {
           z: -22,
           y: 0,
@@ -380,7 +290,7 @@ export default function Hero3D({ heroContainerRef }: Hero3DProps) {
   return (
     <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
       <Canvas
-        camera={{ position: [0, 1.2, 11], fov: 60 }}
+        camera={{ position: [0, 0, 10], fov: 60 }}
         dpr={1}
         gl={{ antialias: false, alpha: true, powerPreference: "high-performance" }}
       >
@@ -390,7 +300,6 @@ export default function Hero3D({ heroContainerRef }: Hero3DProps) {
         <directionalLight position={[-10, -10, -5]} intensity={1.2} color="#06B6D4" />
 
         <MultiColorParticles count={isMobile ? 150 : 350} />
-        <MultiPage3DStage />
         <GlobeStage isMobile={isMobile} />
         <ComputerSetupStage />
         <FreelanceBuildStage />
