@@ -47,7 +47,7 @@ export default function Hero() {
     <section
       id="hero"
       ref={containerRef}
-      className="relative min-h-[120vh] w-full flex items-start sm:items-center justify-center overflow-hidden pt-24 sm:pt-20"
+      className="relative min-h-[180vh] w-full flex items-start sm:items-center justify-center overflow-hidden pt-24 sm:pt-20"
     >
       {/* 3D Background Canvas */}
       <Hero3D heroContainerRef={containerRef} />
@@ -134,7 +134,7 @@ export default function Hero() {
         transition={{ delay: 1, duration: 1 }}
         className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 text-xs font-inter text-slate-300/80 pointer-events-none"
       >
-        <span className="text-cyan-300 font-semibold tracking-wider">Scroll to zoom into 3D Workstation</span>
+        <span className="text-cyan-300 font-semibold tracking-wider">Scroll: 3D Globe → Computer Setup → Freelance Build Hub</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
