@@ -13,7 +13,7 @@ export default function AudioJourney() {
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  const audioSrc = language === "en" ? "/audio/ajay_journey_english.mp3" : "/audio/ajay_journey_telugu.mp3";
+  const audioSrc = language === "en" ? "/teamaurora-english.mp3" : "/teamaurora-telugu.mp3";
 
   useEffect(() => {
     setIsPlaying(false);
@@ -178,6 +178,12 @@ export default function AudioJourney() {
           onEnded={handleEnded}
         />
 
+        {/* Bottom Proof Note */}
+        <div className="pt-8 text-center max-w-xl mx-auto flex items-center justify-center gap-2 text-xs text-slate-300 font-inter">
+          <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+          <span>Verified earnings & client proof — Listen to Ajay&apos;s real voice recordings in English & Telugu!</span>
+        </div>
+
         {/* Player Top Controls */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-slate-800 pb-6">
           <div className="flex items-center gap-3">
@@ -304,6 +310,12 @@ export default function AudioJourney() {
           )}
         </div>
       </motion.div>
+
+      {/* Bottom Proof Note */}
+      <div className="pt-8 text-center max-w-xl mx-auto flex items-center justify-center gap-2 text-xs text-slate-300 font-inter">
+        <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+        <span>Verified earnings & client proof — Listen to Ajay&apos;s real voice recordings in English & Telugu!</span>
+      </div>
     </section>
   );
 }
