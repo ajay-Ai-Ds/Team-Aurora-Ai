@@ -14,7 +14,13 @@ import ScrollProgress from "@/components/ScrollProgress";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0A0A0F] text-slate-100 relative selection:bg-cyan-500/30 selection:text-cyan-200 overflow-x-hidden">
+    <main className="min-h-screen bg-cosmic-main text-slate-100 relative selection:bg-pink-500/30 selection:text-pink-200 overflow-x-hidden">
+      {/* Dynamic Ambient Aurora Background Lights */}
+      <div className="fixed top-0 left-1/4 w-[500px] h-[500px] bg-pink-600/15 rounded-full blur-[140px] pointer-events-none z-0 animate-pulse" />
+      <div className="fixed top-1/3 right-10 w-[600px] h-[600px] bg-purple-600/15 rounded-full blur-[160px] pointer-events-none z-0" />
+      <div className="fixed bottom-1/4 left-10 w-[550px] h-[550px] bg-cyan-600/15 rounded-full blur-[150px] pointer-events-none z-0" />
+      <div className="fixed bottom-0 right-1/4 w-[500px] h-[500px] bg-emerald-600/15 rounded-full blur-[140px] pointer-events-none z-0" />
+
       {/* Persistent Background 3D Particles */}
       <GlobalBackground3D />
 

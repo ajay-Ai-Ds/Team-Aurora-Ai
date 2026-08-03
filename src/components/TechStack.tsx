@@ -110,7 +110,7 @@ function TiltCard({ tool, idx }: { tool: ToolItem; idx: number }) {
       }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={`group relative p-8 rounded-2xl bg-[#0A0A0F]/80 border border-slate-800/80 backdrop-blur-xl transition-all duration-300 ${tool.borderColor} ${tool.glowColor} perspective-1000 cursor-pointer`}
+      className={`group relative p-8 rounded-2xl bg-[#060814]/85 border border-purple-500/20 backdrop-blur-2xl transition-all duration-300 ${tool.borderColor} ${tool.glowColor} perspective-1000 cursor-pointer`}
     >
       {/* Card Gradient Background Layer */}
       <div

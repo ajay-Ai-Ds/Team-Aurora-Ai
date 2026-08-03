@@ -62,7 +62,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="lg:col-span-5 p-8 rounded-2xl bg-[#0A0A0F]/80 border border-slate-800/80 backdrop-blur-xl shadow-[0_0_30px_rgba(6,182,212,0.1)] space-y-8"
+          className="lg:col-span-5 p-8 rounded-2xl bg-[#060814]/85 border border-purple-500/25 backdrop-blur-2xl shadow-[0_0_35px_rgba(236,72,153,0.15)] space-y-8"
         >
           <div className="space-y-2">
             <h3 className="font-space font-bold text-2xl text-white">Direct Channels</h3>
@@ -154,7 +154,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="lg:col-span-7 p-8 rounded-2xl bg-[#0A0A0F]/80 border border-slate-800/80 backdrop-blur-xl shadow-[0_0_30px_rgba(6,182,212,0.1)]"
+          className="lg:col-span-7 p-8 rounded-2xl bg-[#060814]/85 border border-purple-500/25 backdrop-blur-2xl shadow-[0_0_35px_rgba(236,72,153,0.15)]"
         >
           {submitted ? (
             <div className="py-12 text-center space-y-4 font-inter">

@@ -102,7 +102,7 @@ export default function Reviews() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: idx * 0.1 }}
             whileHover={{ y: -6 }}
-            className="flex-none w-[310px] sm:w-[380px] snap-center p-8 rounded-2xl bg-[#0A0A0F]/80 border border-slate-800/80 backdrop-blur-xl hover:border-cyan-500/50 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)] transition-all duration-300 flex flex-col justify-between"
+            className="flex-none w-[310px] sm:w-[380px] snap-center p-8 rounded-2xl bg-[#060814]/85 border border-purple-500/25 backdrop-blur-2xl hover:border-pink-500/50 hover:shadow-[0_0_35px_rgba(236,72,153,0.25)] transition-all duration-300 flex flex-col justify-between"
           >
             <div className="space-y-4">
               {/* Rating Stars & Badge */}

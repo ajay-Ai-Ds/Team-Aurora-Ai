@@ -5,7 +5,7 @@ import { GitBranch, Share2, Camera, Sparkles, Cpu, Layers, Cloud } from "lucide-
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0A0A0F] border-t border-cyan-500/20 shadow-[0_-4px_25px_rgba(6,182,212,0.1)] pt-16 pb-8 font-inter text-slate-400">
+    <footer className="bg-[#060814] border-t border-pink-500/20 shadow-[0_-4px_35px_rgba(236,72,153,0.15)] pt-16 pb-8 font-inter text-slate-400">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-slate-900">
           {/* Column 1: Logo & Brand Tagline */}

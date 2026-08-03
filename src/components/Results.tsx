@@ -47,7 +47,7 @@ function StatCard({ icon: Icon, value, suffix, title, subtitle, badge, delay = 0
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
       whileHover={{ y: -5, scale: 1.02 }}
-      className="group relative p-8 rounded-2xl bg-[#0A0A0F]/80 border border-slate-800/80 backdrop-blur-xl hover:border-cyan-500/50 hover:shadow-[0_0_30px_rgba(6,182,212,0.2)] transition-all duration-300 flex flex-col justify-between"
+      className="group relative p-8 rounded-2xl bg-[#060814]/85 border border-purple-500/25 backdrop-blur-2xl hover:border-pink-500/50 hover:shadow-[0_0_35px_rgba(236,72,153,0.3)] transition-all duration-300 flex flex-col justify-between"
     >
       <div className="flex items-center justify-between mb-6">
         <div className="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 group-hover:border-cyan-500/40 text-cyan-400 transition-colors">

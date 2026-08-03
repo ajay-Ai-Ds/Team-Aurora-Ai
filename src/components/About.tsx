@@ -101,9 +101,9 @@ export default function About() {
             <motion.div
               animate={{ y: [0, -10, 0], rotate: [0, 1.5, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="p-5 rounded-2xl bg-[#0A0A0F]/80 border border-cyan-500/30 backdrop-blur-xl shadow-[0_0_20px_rgba(6,182,212,0.15)] flex items-center gap-4 hover:border-cyan-400 transition-colors"
+              className="p-5 rounded-2xl bg-[#060814]/85 border border-pink-500/30 backdrop-blur-2xl shadow-[0_8px_32px_rgba(236,72,153,0.2)] flex items-center gap-4 hover:border-pink-400 transition-colors"
             >
-              <div className="p-3 rounded-xl bg-cyan-950/60 border border-cyan-500/40 text-cyan-400">
+              <div className="p-3 rounded-xl bg-pink-950/60 border border-pink-500/40 text-pink-400">
                 <Sparkles className="w-6 h-6" />
               </div>
               <div>
@@ -116,9 +116,9 @@ export default function About() {
             <motion.div
               animate={{ y: [0, 12, 0], rotate: [0, -2, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              className="ml-6 p-5 rounded-2xl bg-[#0A0A0F]/80 border border-blue-500/30 backdrop-blur-xl shadow-[0_0_20px_rgba(59,130,246,0.15)] flex items-center gap-4 hover:border-blue-400 transition-colors"
+              className="ml-6 p-5 rounded-2xl bg-[#060814]/85 border border-purple-500/30 backdrop-blur-2xl shadow-[0_8px_32px_rgba(139,92,246,0.2)] flex items-center gap-4 hover:border-purple-400 transition-colors"
             >
-              <div className="p-3 rounded-xl bg-blue-950/60 border border-blue-500/40 text-blue-400">
+              <div className="p-3 rounded-xl bg-purple-950/60 border border-purple-500/40 text-purple-400">
                 <Cpu className="w-6 h-6" />
               </div>
               <div>
@@ -131,9 +131,9 @@ export default function About() {
             <motion.div
               animate={{ y: [0, -8, 0], rotate: [0, 1, 0] }}
               transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="p-5 rounded-2xl bg-[#0A0A0F]/80 border border-purple-500/30 backdrop-blur-xl shadow-[0_0_20px_rgba(139,92,246,0.15)] flex items-center gap-4 hover:border-purple-400 transition-colors"
+              className="p-5 rounded-2xl bg-[#060814]/85 border border-cyan-500/30 backdrop-blur-2xl shadow-[0_8px_32px_rgba(6,182,212,0.2)] flex items-center gap-4 hover:border-cyan-400 transition-colors"
             >
-              <div className="p-3 rounded-xl bg-purple-950/60 border border-purple-500/40 text-purple-400">
+              <div className="p-3 rounded-xl bg-cyan-950/60 border border-cyan-500/40 text-cyan-400">
                 <Cloud className="w-6 h-6" />
               </div>
               <div>

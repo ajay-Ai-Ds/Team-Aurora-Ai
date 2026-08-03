@@ -29,8 +29,8 @@ export default function Navbar() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-[#0A0A0F]/90 backdrop-blur-xl border-b border-cyan-500/20 shadow-[0_4px_25px_rgba(6,182,212,0.15)] py-3"
-            : "bg-[#0A0A0F]/30 backdrop-blur-md border-b border-white/5 py-5"
+            ? "bg-[#060814]/90 backdrop-blur-2xl border-b border-pink-500/30 shadow-[0_4px_30px_rgba(236,72,153,0.2)] py-3"
+            : "bg-[#060814]/40 backdrop-blur-md border-b border-white/5 py-5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">

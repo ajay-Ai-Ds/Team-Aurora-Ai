@@ -112,7 +112,7 @@ export default function Portfolio() {
               transition={{ duration: 0.5, delay: idx * 0.05 }}
               whileHover={{ y: -8, scale: 1.02 }}
               style={{ transformStyle: "preserve-3d" }}
-              className="group relative flex flex-col rounded-2xl bg-[#0A0A0F]/80 border border-slate-800/80 backdrop-blur-xl hover:border-cyan-500/50 hover:shadow-[0_0_35px_rgba(6,182,212,0.25)] transition-all duration-300 overflow-hidden"
+              className="group relative flex flex-col rounded-2xl bg-[#060814]/85 border border-purple-500/25 backdrop-blur-2xl hover:border-pink-500/50 hover:shadow-[0_0_40px_rgba(236,72,153,0.3)] transition-all duration-300 overflow-hidden"
             >
               {/* Browser Mockup Chrome */}
               <div className="px-4 py-3 bg-slate-950/90 border-b border-slate-800 flex items-center justify-between">
