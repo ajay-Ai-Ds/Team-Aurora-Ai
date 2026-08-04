@@ -11,16 +11,16 @@ export default function Hero() {
     <section
       id="hero"
       ref={containerRef}
-      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-black"
     >
-      {/* Fullscreen Video Background */}
+      {/* Fullscreen Video Background - 100% Full Visibility & Crystal Clear Brightness */}
       <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover opacity-100"
         >
           <source src="/Headervideo-1.mp4" type="video/mp4" />
         </video>
@@ -31,14 +31,14 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 text-xs font-inter text-white pointer-events-none drop-shadow-lg"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 text-xs font-inter text-white pointer-events-none drop-shadow-xl"
       >
         <span className="text-white font-semibold tracking-wider drop-shadow-md">Scroll to Explore TeamAurora.AI</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
         >
-          <ChevronDown className="w-5 h-5 text-pink-400" />
+          <ChevronDown className="w-5 h-5 text-pink-400 drop-shadow" />
         </motion.div>
       </motion.div>
     </section>
