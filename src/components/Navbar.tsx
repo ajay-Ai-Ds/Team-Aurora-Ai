@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, PhoneCall, MessageSquare } from "lucide-react";
 import { siteConfig } from "@/data/siteConfig";
+import { sfx } from "@/utils/soundEffects";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -64,13 +65,15 @@ export default function Navbar() {
               <motion.a
                 key={link.name}
                 href={link.href}
+                onClick={() => sfx.playButtonClickSound()}
+                onMouseEnter={() => sfx.playHoverSound()}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.1 * index }}
-                className="relative text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors py-1 group"
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-pink-400 transition-colors relative group py-1"
               >
                 {link.name}
-                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-cyan-400 to-blue-600 group-hover:w-full transition-all duration-300 rounded-full shadow-[0_0_8px_#06b6d4]" />
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-pink-500 to-purple-500 group-hover:w-full transition-all duration-300" />
               </motion.a>
             ))}
           </nav>

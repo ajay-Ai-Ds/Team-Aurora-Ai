@@ -3,12 +3,14 @@
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Volume2, VolumeX, Play, Pause, Sparkles } from "lucide-react";
+import { sfx } from "@/utils/soundEffects";
 
 export default function FloatingAudioPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const toggleAudio = () => {
+    sfx.playButtonClickSound();
     if (!audioRef.current) return;
     if (isPlaying) {
       audioRef.current.pause();

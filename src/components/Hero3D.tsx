@@ -6,6 +6,7 @@ import { AdaptiveDpr, Preload, Float, Text } from "@react-three/drei";
 import * as THREE from "three";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { sfx } from "@/utils/soundEffects";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -56,6 +57,75 @@ function MultiColorParticles({ count = 400 }) {
         blending={THREE.AdditiveBlending}
       />
     </points>
+  );
+}
+
+// 3D Dropping Word Component with Gravity Bounce
+function DroppingWord({ text, position, color, delay }: { text: string; position: [number, number, number]; color: string; delay: number }) {
+  const wordGroupRef = useRef<THREE.Group>(null!);
+
+  useLayoutEffect(() => {
+    if (!wordGroupRef.current) return;
+
+    // Set initial position high up above camera
+    wordGroupRef.current.position.y = 12;
+
+    // GSAP Drop & Bounce animation
+    gsap.to(wordGroupRef.current.position, {
+      y: position[1],
+      duration: 1.2,
+      delay: delay,
+      ease: "bounce.out",
+      onComplete: () => {
+        sfx.playWordDropSound();
+      },
+    });
+  }, [position, delay]);
+
+  return (
+    <group ref={wordGroupRef} position={[position[0], 12, position[2]]}>
+      <Float speed={1.5} rotationIntensity={0.3} floatIntensity={0.8}>
+        {/* 3D Backdrop Mesh */}
+        <mesh position={[0, 0, -0.05]}>
+          <planeGeometry args={[text.length * 0.24 + 0.6, 0.6]} />
+          <meshBasicMaterial color="#060814" transparent opacity={0.7} />
+        </mesh>
+        <mesh position={[0, 0, -0.04]}>
+          <planeGeometry args={[text.length * 0.24 + 0.65, 0.65]} />
+          <meshBasicMaterial color={color} wireframe transparent opacity={0.4} />
+        </mesh>
+
+        {/* 3D Text */}
+        <Text
+          position={[0, 0, 0.05]}
+          fontSize={0.32}
+          color={color}
+          anchorX="center"
+          anchorY="middle"
+        >
+          {text}
+        </Text>
+      </Float>
+    </group>
+  );
+}
+
+// 3D Dropping Words Stage
+function DroppingWordsStage() {
+  const words = [
+    { text: "⚡ VIBE CODING", pos: [-3.6, 3.2, 2] as [number, number, number], color: "#EC4899", delay: 0.2 },
+    { text: "💰 ₹2.5L / MONTH", pos: [3.6, 3.0, 1.8] as [number, number, number], color: "#F59E0B", delay: 0.5 },
+    { text: "🎯 50+ META ADS", pos: [-3.8, 1.2, 1] as [number, number, number], color: "#8B5CF6", delay: 0.8 },
+    { text: "🌐 17+ LIVE SITES", pos: [3.8, 1.0, 1.2] as [number, number, number], color: "#06B6D4", delay: 1.1 },
+    { text: "🚀 AI-POWERED SPEED", pos: [0, 3.6, 2.5] as [number, number, number], color: "#10B981", delay: 1.4 },
+  ];
+
+  return (
+    <group position={[0, 0, 0]}>
+      {words.map((w, i) => (
+        <DroppingWord key={i} text={w.text} position={w.pos} color={w.color} delay={w.delay} />
+      ))}
+    </group>
   );
 }
 
@@ -300,6 +370,7 @@ export default function Hero3D({ heroContainerRef }: Hero3DProps) {
         <directionalLight position={[-10, -10, -5]} intensity={1.2} color="#06B6D4" />
 
         <MultiColorParticles count={isMobile ? 150 : 350} />
+        <DroppingWordsStage />
         <GlobeStage isMobile={isMobile} />
         <ComputerSetupStage />
         <FreelanceBuildStage />
