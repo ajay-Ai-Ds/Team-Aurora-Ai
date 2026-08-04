@@ -1,139 +1,29 @@
 "use client";
 
-import { useRef, useLayoutEffect } from "react";
-import dynamic from "next/dynamic";
+import { useRef } from "react";
 import { motion } from "framer-motion";
-import { ArrowDown, Code2, Sparkles, ChevronDown, Monitor } from "lucide-react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { siteConfig } from "@/data/siteConfig";
-
-gsap.registerPlugin(ScrollTrigger);
-
-// Lazy load 3D Canvas
-const Hero3D = dynamic(() => import("./Hero3D"), {
-  ssr: false,
-});
+import { ChevronDown } from "lucide-react";
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-
-  useLayoutEffect(() => {
-    if (!containerRef.current || !contentRef.current) return;
-
-    const ctx = gsap.context(() => {
-      gsap.to(contentRef.current, {
-        opacity: 0,
-        y: -70,
-        ease: "power1.out",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top top",
-          end: "55% top",
-          scrub: true,
-        },
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
 
   return (
     <section
       id="hero"
       ref={containerRef}
-      className="relative min-h-[140vh] w-full flex items-start sm:items-center justify-center overflow-hidden pt-24 sm:pt-20"
+      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden"
     >
-      {/* Looping Header Background Video */}
+      {/* Fullscreen Video Background */}
       <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="w-full h-full object-cover opacity-75 filter brightness-90 contrast-105"
+          className="w-full h-full object-cover"
         >
           <source src="/Headervideo-1.mp4" type="video/mp4" />
         </video>
-
-        {/* Multi-Color Gradient Overlay for High Contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#060814] via-[#060814]/60 to-[#060814]/80 pointer-events-none" />
-      </div>
-
-      {/* Vibrant Radial Multi-Color Glow Behind Text */}
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-pink-600/20 via-purple-600/15 to-transparent blur-3xl" />
-
-      {/* HTML Hero Overlay Content */}
-      <div
-        ref={contentRef}
-        className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-center py-12 sm:py-16"
-      >
-        {/* Vibrant Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-pink-950/70 via-purple-950/70 to-cyan-950/70 border border-pink-500/40 text-pink-300 text-xs font-semibold tracking-wider font-inter mb-6 backdrop-blur-md shadow-[0_0_20px_rgba(236,72,153,0.3)]"
-        >
-          <Sparkles className="w-3.5 h-3.5 text-pink-400 animate-spin-slow" />
-          <span>AI-Powered Digital Web Platform</span>
-          <Monitor className="w-3.5 h-3.5 text-cyan-400" />
-        </motion.div>
-
-        {/* Main Title with Multi-Color Gradient */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="font-space font-extrabold text-5xl sm:text-7xl lg:text-8xl tracking-tight text-white mb-4 drop-shadow-2xl"
-        >
-          TeamAurora<span className="text-vibrant-gradient text-glow-multicolor">.AI</span>
-        </motion.h1>
-
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-          className="font-space font-semibold text-xl sm:text-3xl text-cyan-300 mb-4 max-w-3xl text-glow-cyan drop-shadow-lg"
-        >
-          {siteConfig.hero.subheading}
-        </motion.p>
-
-        {/* Tagline */}
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.5 }}
-          className="font-inter text-slate-200 text-sm sm:text-base max-w-2xl mb-10 leading-relaxed font-medium drop-shadow-md"
-        >
-          {siteConfig.hero.tagline}
-        </motion.p>
-
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.6 }}
-          className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full sm:w-auto"
-        >
-          <a
-            href="#portfolio"
-            className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-pink-500 via-purple-600 to-cyan-500 text-white font-space font-semibold text-base shadow-[0_0_30px_rgba(236,72,153,0.5)] hover:shadow-[0_0_40px_rgba(236,72,153,0.7)] hover:scale-[1.03] active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer"
-          >
-            <span>View My Work</span>
-            <ArrowDown className="w-4 h-4 -rotate-90" />
-          </a>
-
-          <a
-            href="#contact"
-            className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-slate-900/90 border border-cyan-500/50 text-cyan-300 hover:text-white hover:border-pink-500/50 font-space font-semibold text-base backdrop-blur-md shadow-[0_0_20px_rgba(6,182,212,0.2)] hover:shadow-[0_0_30px_rgba(236,72,153,0.3)] hover:scale-[1.03] active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer"
-          >
-            <Code2 className="w-4 h-4 text-cyan-400" />
-            <span>Get In Touch</span>
-          </a>
-        </motion.div>
       </div>
 
       {/* Bottom Animated Scroll Indicator */}
@@ -141,14 +31,14 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 text-xs font-inter text-slate-200 pointer-events-none"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 text-xs font-inter text-white pointer-events-none drop-shadow-lg"
       >
-        <span className="text-cyan-300 font-semibold tracking-wider drop-shadow-md">Scroll to Explore TeamAurora.AI</span>
+        <span className="text-white font-semibold tracking-wider drop-shadow-md">Scroll to Explore TeamAurora.AI</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
         >
-          <ChevronDown className="w-4 h-4 text-pink-400" />
+          <ChevronDown className="w-5 h-5 text-pink-400" />
         </motion.div>
       </motion.div>
     </section>
