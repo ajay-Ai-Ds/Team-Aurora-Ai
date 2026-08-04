@@ -6,9 +6,9 @@ import { AdaptiveDpr } from "@react-three/drei";
 import * as THREE from "three";
 import dynamic from "next/dynamic";
 
-function BackgroundParticles({ isMobile }: { isMobile: boolean }) {
+function BackgroundParticles() {
   const pointsRef = useRef<THREE.Points>(null!);
-  const count = isMobile ? 60 : 150;
+  const count = 100;
 
   const { positions, colors } = useMemo(() => {
     const pos = new Float32Array(count * 3);
@@ -53,7 +53,7 @@ function BackgroundParticles({ isMobile }: { isMobile: boolean }) {
 }
 
 function GlobalCanvas() {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(true);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -61,6 +61,9 @@ function GlobalCanvas() {
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
+
+  // Disable background 3D canvas completely on mobile to guarantee 60fps buttery scrolling
+  if (isMobile) return null;
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0">
@@ -70,7 +73,7 @@ function GlobalCanvas() {
         gl={{ antialias: false, alpha: true, powerPreference: "high-performance" }}
       >
         <AdaptiveDpr />
-        <BackgroundParticles isMobile={isMobile} />
+        <BackgroundParticles />
       </Canvas>
     </div>
   );
