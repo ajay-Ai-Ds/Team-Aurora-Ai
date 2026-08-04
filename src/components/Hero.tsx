@@ -34,7 +34,7 @@ export default function Hero() {
           playsInline
           className="w-full h-full object-cover opacity-100"
         >
-          <source src="/Headervideo-1.mp4" type="video/mp4" />
+          <source src="/portfolio/teamaurora-main.mp4" type="video/mp4" />
         </video>
       </div>
 
