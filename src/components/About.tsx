@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Sparkles, Terminal, Cpu, Cloud, Globe, Code2, Zap } from "lucide-react";
+import { Sparkles, Cpu, Cloud, CheckCircle2, ShieldCheck, Zap } from "lucide-react";
 
 // Count-up Stat Item
 function AnimatedStat({ value, suffix, label }: { value: number | string; suffix?: string; label: string }) {
@@ -31,7 +31,7 @@ function AnimatedStat({ value, suffix, label }: { value: number | string; suffix
   }, [isInView, numericValue, isNumber]);
 
   return (
-    <div ref={ref} className="p-4 rounded-xl bg-slate-900/60 border border-cyan-500/20 backdrop-blur-md">
+    <div ref={ref} className="p-4 rounded-xl bg-slate-900/70 border border-cyan-500/25 backdrop-blur-md">
       <div className="font-space text-3xl sm:text-4xl font-extrabold text-cyan-400 text-glow-cyan mb-1">
         {isNumber ? `${displayValue}${suffix || ""}` : value}
       </div>
@@ -58,89 +58,83 @@ export default function About() {
           {/* Label */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-950/40 border border-cyan-500/30 text-cyan-400 text-xs font-semibold tracking-widest font-inter uppercase">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Who Am I</span>
+            <span>WHO AM I</span>
           </div>
 
           {/* Heading */}
           <h2 className="font-space text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
             I&apos;m Ajay — I Build Digital Experiences with{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-500">
               AI-Assisted Development
             </span>
           </h2>
 
           {/* Paragraph */}
           <p className="font-inter text-slate-300 text-base sm:text-lg leading-relaxed">
-            I am a full-stack web developer and digital builder who leverages state-of-the-art AI workflows (Claude, Antigravity) to rapidly architect, engineer, and deploy production-ready web platforms for real businesses. By combining AI speed with battle-tested frontend and backend practices, I transform complex ideas into high-converting, 60fps digital engines that deliver real client results.
+            I am a full-stack web developer and digital entrepreneur who leverages state-of-the-art AI workflows (Claude, Antigravity) to rapidly architect, engineer, and deploy production-ready web platforms for real businesses. By combining AI speed with battle-tested frontend and backend practices, I transform complex ideas into high-converting, 60fps digital engines that deliver real client results.
           </p>
 
           {/* Stats Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
-            <AnimatedStat value={6} suffix="+" label="Live Client Sites" />
-            <AnimatedStat value={18} suffix="+" label="Services Built" />
+            <AnimatedStat value={17} suffix="+" label="Live Client Sites" />
+            <AnimatedStat value={50} suffix="+" label="Meta Ads Managed" />
             <AnimatedStat value={100} suffix="%" label="Deployed on Vercel" />
             <AnimatedStat value="AI-First" label="Dev Workflow" />
           </div>
         </motion.div>
 
-        {/* Right Column - 3D Floating Glassmorphic Tool Stack */}
+        {/* Right Column - Founder Face Portrait Card */}
         <motion.div
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
-          className="lg:col-span-5 relative flex items-center justify-center min-h-[380px]"
+          className="lg:col-span-5 relative"
         >
-          {/* Decorative Glowing Rings */}
-          <div className="absolute w-72 h-72 rounded-full border border-cyan-500/20 animate-spin-slow pointer-events-none" />
-          <div className="absolute w-96 h-96 rounded-full border border-blue-500/10 pointer-events-none" />
+          {/* Main Founder Card Container */}
+          <div className="relative group p-4 rounded-3xl bg-[#060814]/90 border border-pink-500/30 backdrop-blur-2xl shadow-[0_0_50px_rgba(236,72,153,0.25)] hover:border-pink-400 transition-all duration-500">
+            {/* Image Frame */}
+            <div className="relative rounded-2xl overflow-hidden aspect-[4/5] w-full">
+              <img
+                src="/portfolio/myimage.jpg"
+                alt="Ajay - Founder of TeamAurora.AI"
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#060814] via-transparent to-black/20 pointer-events-none" />
 
-          {/* Floating Cards Container */}
-          <div className="relative w-full max-w-sm space-y-4">
-            {/* Card 1: Claude AI */}
-            <motion.div
-              animate={{ y: [0, -10, 0], rotate: [0, 1.5, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="p-5 rounded-2xl bg-[#060814]/85 border border-pink-500/30 backdrop-blur-2xl shadow-[0_8px_32px_rgba(236,72,153,0.2)] flex items-center gap-4 hover:border-pink-400 transition-colors"
-            >
-              <div className="p-3 rounded-xl bg-pink-950/60 border border-pink-500/40 text-pink-400">
-                <Sparkles className="w-6 h-6" />
+              {/* Floating Top Badge */}
+              <div className="absolute top-4 left-4 z-10">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950/85 border border-pink-500/50 text-pink-300 text-xs font-space font-bold backdrop-blur-md shadow-lg">
+                  <Sparkles className="w-3.5 h-3.5 text-pink-400" />
+                  <span>Ajay — Founder & Lead Developer</span>
+                </span>
               </div>
-              <div>
-                <h4 className="font-space text-white font-bold text-base">Claude AI (Anthropic)</h4>
-                <p className="font-inter text-xs text-slate-400">AI Architect & Logic Engine</p>
-              </div>
-            </motion.div>
 
-            {/* Card 2: Antigravity IDE */}
-            <motion.div
-              animate={{ y: [0, 12, 0], rotate: [0, -2, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              className="ml-6 p-5 rounded-2xl bg-[#060814]/85 border border-purple-500/30 backdrop-blur-2xl shadow-[0_8px_32px_rgba(139,92,246,0.2)] flex items-center gap-4 hover:border-purple-400 transition-colors"
-            >
-              <div className="p-3 rounded-xl bg-purple-950/60 border border-purple-500/40 text-purple-400">
-                <Cpu className="w-6 h-6" />
+              {/* Floating Bottom Status Pill */}
+              <div className="absolute bottom-4 left-4 right-4 z-10 flex items-center justify-between p-3 rounded-xl bg-slate-950/85 border border-cyan-500/30 backdrop-blur-md font-inter text-xs text-white">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_10px_rgba(52,211,153,0.8)]" />
+                  <span className="font-semibold text-slate-200">AI Vibe Coding Specialist</span>
+                </div>
+                <span className="font-space font-bold text-cyan-300">₹2.5L / Mo</span>
               </div>
-              <div>
-                <h4 className="font-space text-white font-bold text-base">Antigravity IDE</h4>
-                <p className="font-inter text-xs text-slate-400">Autonomous Agentic Coding</p>
-              </div>
-            </motion.div>
+            </div>
 
-            {/* Card 3: Next.js + Vercel */}
-            <motion.div
-              animate={{ y: [0, -8, 0], rotate: [0, 1, 0] }}
-              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="p-5 rounded-2xl bg-[#060814]/85 border border-cyan-500/30 backdrop-blur-2xl shadow-[0_8px_32px_rgba(6,182,212,0.2)] flex items-center gap-4 hover:border-cyan-400 transition-colors"
-            >
-              <div className="p-3 rounded-xl bg-cyan-950/60 border border-cyan-500/40 text-cyan-400">
-                <Cloud className="w-6 h-6" />
+            {/* Bottom Tech Badges Bar */}
+            <div className="pt-4 px-2 grid grid-cols-3 gap-2 text-center font-inter text-[11px] text-slate-400">
+              <div className="p-2 rounded-xl bg-slate-950/70 border border-slate-800">
+                <span className="text-pink-400 font-bold block">Claude AI</span>
+                <span>Architect</span>
               </div>
-              <div>
-                <h4 className="font-space text-white font-bold text-base">Next.js & Vercel</h4>
-                <p className="font-inter text-xs text-slate-400">Production Cloud Infrastructure</p>
+              <div className="p-2 rounded-xl bg-slate-950/70 border border-slate-800">
+                <span className="text-purple-400 font-bold block">Antigravity</span>
+                <span>Agentic IDE</span>
               </div>
-            </motion.div>
+              <div className="p-2 rounded-xl bg-slate-950/70 border border-slate-800">
+                <span className="text-cyan-400 font-bold block">Next.js</span>
+                <span>Vercel Cloud</span>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>

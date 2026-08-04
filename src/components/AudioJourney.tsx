@@ -186,9 +186,13 @@ export default function AudioJourney() {
 
         {/* Player Top Controls */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-slate-800 pb-6">
-          <div className="flex items-center gap-3">
-            <div className="p-3 rounded-2xl bg-amber-950/80 border border-amber-500/40 text-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.3)]">
-              <Volume2 className="w-6 h-6" />
+          <div className="flex items-center gap-4">
+            <div className="relative w-14 h-14 rounded-2xl overflow-hidden border border-pink-500/40 shadow-[0_0_15px_rgba(236,72,153,0.3)] flex-shrink-0">
+              <img
+                src="/portfolio/myimage.jpg"
+                alt="Ajay Face Portrait"
+                className="w-full h-full object-cover object-center"
+              />
             </div>
             <div>
               <h3 className="font-space font-bold text-xl text-white">Ajay&apos;s Personal Voice Note</h3>
