@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown, Volume2, VolumeX } from "lucide-react";
 import { sfx } from "@/utils/soundEffects";
@@ -8,13 +8,28 @@ import { sfx } from "@/utils/soundEffects";
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = false;
+      videoRef.current.play().catch(() => {
+        // If browser blocks unmuted autoplay, fallback to muted autoplay
+        if (videoRef.current) {
+          videoRef.current.muted = true;
+          setIsMuted(true);
+          videoRef.current.play();
+        }
+      });
+    }
+  }, []);
 
   const toggleMute = () => {
     sfx.playButtonClickSound();
     if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
+      const nextMute = !isMuted;
+      videoRef.current.muted = nextMute;
+      setIsMuted(nextMute);
     }
   };
 
@@ -30,7 +45,6 @@ export default function Hero() {
           ref={videoRef}
           autoPlay
           loop
-          muted={isMuted}
           playsInline
           className="w-full h-full object-cover opacity-100"
         >
@@ -38,7 +52,7 @@ export default function Hero() {
         </video>
       </div>
 
-      {/* Interactive Unmute / Mute Video Sound Button */}
+      {/* Interactive Sound ON / Mute Video Sound Button */}
       <div className="absolute top-28 right-6 z-30 pointer-events-auto">
         <motion.button
           onClick={toggleMute}
