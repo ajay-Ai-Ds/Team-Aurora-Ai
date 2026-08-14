@@ -47,7 +47,7 @@ export default function Hero() {
     <section
       id="hero"
       ref={containerRef}
-      className="relative h-[85vh] sm:min-h-screen w-full flex items-center justify-center overflow-hidden bg-black"
+      className="relative w-full aspect-video sm:aspect-auto sm:h-[85vh] sm:min-h-screen flex items-center justify-center overflow-hidden bg-black mt-16 sm:mt-0"
     >
       {/* Fullscreen Video Background */}
       <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
@@ -65,7 +65,7 @@ export default function Hero() {
       </div>
 
       {/* Interactive Sound Button - Mobile Optimized */}
-      <div className="absolute top-20 right-4 sm:top-28 sm:right-6 z-30 pointer-events-auto">
+      <div className="absolute top-3 right-3 sm:top-28 sm:right-6 z-30 pointer-events-auto">
         <motion.button
           onClick={toggleMute}
           whileHover={{ scale: 1.08 }}
@@ -96,14 +96,14 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1.5 text-xs font-inter text-white pointer-events-none drop-shadow-xl"
+        className="absolute bottom-2 sm:bottom-5 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1 sm:gap-1.5 text-xs font-inter text-white pointer-events-none drop-shadow-xl"
       >
-        <span className="text-white text-[11px] sm:text-xs font-semibold tracking-wider drop-shadow-md">Scroll to Explore TeamAurora.AI</span>
+        <span className="text-white text-[10px] sm:text-xs font-semibold tracking-wider drop-shadow-md">Scroll to Explore TeamAurora.AI</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
         >
-          <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 text-pink-400 drop-shadow" />
+          <ChevronDown className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-pink-400 drop-shadow" />
         </motion.div>
       </motion.div>
     </section>
