@@ -16,6 +16,7 @@ import Reviews from "@/components/Reviews";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 import FloatingAudioPlayer from "@/components/FloatingAudioPlayer";
 import LiveNotificationToast from "@/components/LiveNotificationToast";
 import GlobalBackground3D from "@/components/GlobalBackground3D";
@@ -99,6 +100,9 @@ export default function Home() {
 
       {/* Universal Floating WhatsApp CTA */}
       <FloatingWhatsApp />
+
+      {/* Upward Floating Scroll To Top Button */}
+      <ScrollToTopButton />
     </main>
   );
 }
