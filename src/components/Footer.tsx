@@ -10,13 +10,22 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-slate-900">
           {/* Column 1: Logo & Brand Tagline */}
           <div className="space-y-4">
-            <a href="#hero" className="inline-block">
-              <span className="font-space font-bold text-2xl tracking-tight text-white flex items-center gap-1.5">
-                TeamAurora<span className="text-cyan-400 font-extrabold text-glow-cyan">.AI</span>
-              </span>
-              <span className="block text-[10px] tracking-widest text-cyan-300/80 font-inter uppercase font-semibold">
-                {siteConfig.tagline}
-              </span>
+            <a href="#hero" className="inline-flex items-center gap-3">
+              <div className="w-8 h-8 rounded-lg overflow-hidden border border-pink-500/40 p-0.5 bg-slate-950">
+                <img
+                  src="/portfolio/aaa_ai_logo.png"
+                  alt="Ajay Aura AI AAA Logo"
+                  className="w-full h-full object-cover rounded"
+                />
+              </div>
+              <div className="flex flex-col items-start">
+                <span className="font-space font-bold text-2xl tracking-tight text-white flex items-center gap-1">
+                  Ajay Aura<span className="text-cyan-400 font-extrabold text-glow-cyan">.AI</span>
+                </span>
+                <span className="block text-[10px] tracking-widest text-cyan-300/80 font-inter uppercase font-semibold">
+                  AAA • {siteConfig.tagline}
+                </span>
+              </div>
             </a>
             <p className="text-sm text-slate-400 leading-relaxed max-w-xs">
               Building next-generation digital platforms, high-converting client websites, and AI-powered web applications.

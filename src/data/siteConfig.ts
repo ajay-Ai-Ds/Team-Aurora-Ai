@@ -1,5 +1,5 @@
 export const siteConfig = {
-  businessName: "TeamAurora.AI",
+  businessName: "Ajay Aura AI",
   tagline: "by Ajay",
   phone: "+91 99893 91930",
   email: "arjilliajay@gmail.com",
@@ -8,7 +8,7 @@ export const siteConfig = {
   instagramReelUrl: "https://www.instagram.com/reel/Db0hoERtULM/",
   githubUrl: "https://github.com/ajay-Ai-Ds",
   hero: {
-    title: "TeamAurora.AI",
+    title: "Ajay Aura AI",
     subheading: "by Ajay — Building Digital Experiences with AI",
     tagline: "Full-Stack Web Development | AI-Powered Design | Real Client Results",
   },

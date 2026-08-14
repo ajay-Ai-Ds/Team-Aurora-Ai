@@ -42,19 +42,19 @@ export default function Navbar() {
             transition={{ type: "spring", stiffness: 300, damping: 15 }}
             className="group flex items-center gap-3 cursor-pointer"
           >
-            <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-pink-500/50 shadow-[0_0_15px_rgba(236,72,153,0.4)] flex-shrink-0 group-hover:border-pink-400 transition-colors">
+            <div className="w-10 h-10 rounded-xl overflow-hidden border-2 border-pink-500/50 shadow-[0_0_20px_rgba(236,72,153,0.5)] flex-shrink-0 group-hover:border-cyan-400 transition-colors bg-slate-950 p-0.5">
               <img
-                src="/portfolio/myimage.jpg"
-                alt="Ajay Face Portrait"
-                className="w-full h-full object-cover object-center"
+                src="/portfolio/aaa_ai_logo.png"
+                alt="Ajay Aura AI AAA Logo"
+                className="w-full h-full object-cover object-center rounded-lg"
               />
             </div>
             <div className="flex flex-col items-start">
-              <span className="font-space font-bold text-xl sm:text-2xl tracking-tight text-white group-hover:text-pink-400 transition-colors flex items-center gap-1.5">
-                TeamAurora<span className="text-pink-400 font-extrabold text-glow-pink">.AI</span>
+              <span className="font-space font-bold text-xl sm:text-2xl tracking-tight text-white group-hover:text-pink-400 transition-colors flex items-center gap-1">
+                Ajay Aura<span className="text-pink-400 font-extrabold text-glow-pink">.AI</span>
               </span>
-              <span className="text-[10px] tracking-widest text-pink-300/90 font-inter uppercase font-semibold pl-0.5">
-                {siteConfig.tagline}
+              <span className="text-[10px] tracking-widest text-cyan-300/90 font-inter uppercase font-semibold pl-0.5">
+                AAA • {siteConfig.tagline}
               </span>
             </div>
           </motion.a>
