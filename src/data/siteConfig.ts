@@ -5,6 +5,7 @@ export const siteConfig = {
   email: "arjilliajay@gmail.com",
   whatsappNumber: "919989391930",
   instagramUrl: "https://www.instagram.com/ajay_teamaurora?igsh=Zzluc3hnNjNrY2c0",
+  instagramReelUrl: "https://www.instagram.com/reel/Db0hoERtULM/",
   githubUrl: "https://github.com/ajay-Ai-Ds",
   hero: {
     title: "TeamAurora.AI",

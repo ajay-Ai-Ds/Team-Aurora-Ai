@@ -76,50 +76,30 @@ export default function VideoShowcase() {
         </div>
 
         {/* Embedded Video Display Canvas */}
-        <div className="relative aspect-video w-full bg-slate-950 overflow-hidden flex items-center justify-center group">
-          {/* Background Gradient Artwork Placeholder & Animated Glow */}
-          <div className="absolute inset-0 bg-gradient-to-br from-pink-950/80 via-purple-950/70 to-cyan-950/80 group-hover:scale-105 transition-transform duration-700" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-pink-500/20 via-transparent to-black/60" />
+        <div className="relative w-full bg-slate-950 overflow-hidden flex flex-col items-center justify-center p-4 sm:p-6 min-h-[480px] sm:min-h-[560px]">
+          {/* Background Radial Glow */}
+          <div className="absolute inset-0 bg-gradient-to-br from-pink-950/40 via-purple-950/30 to-cyan-950/40 pointer-events-none" />
 
-          {/* Instagram Embedded Reel Frame */}
+          {/* Automatic Live Instagram Reel Embed */}
           <iframe
-            src="https://www.instagram.com/p/Czzzzzzzzzz/embed"
-            className="w-full h-full border-0 relative z-10 hidden"
-            allowTransparency
-            allow="encrypted-media"
+            src="https://www.instagram.com/reel/Db0hoERtULM/embed"
+            className="w-full max-w-md h-[460px] sm:h-[520px] border border-pink-500/30 relative z-10 rounded-2xl shadow-[0_0_40px_rgba(236,72,153,0.3)] bg-black"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            allowFullScreen
+            title="Ajay's Instagram Reel"
           />
 
-          {/* Interactive Play Overlay / Direct Video Launch Card */}
-          <div className="relative z-20 flex flex-col items-center text-center p-8 space-y-6">
+          {/* Quick Direct Link Bar */}
+          <div className="relative z-20 mt-4 flex items-center justify-center">
             <a
-              href={siteConfig.instagramUrl}
+              href={siteConfig.instagramReelUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative p-6 rounded-full bg-gradient-to-r from-pink-500 via-purple-600 to-cyan-500 text-white shadow-[0_0_35px_rgba(236,72,153,0.6)] hover:scale-110 transition-all duration-300 group/btn"
-              aria-label="Play Instagram Video"
-            >
-              <span className="absolute -inset-2 rounded-full bg-pink-500 opacity-40 animate-ping pointer-events-none" />
-              <Play className="w-10 h-10 fill-white translate-x-0.5 relative z-10" />
-            </a>
-
-            <div className="space-y-2 max-w-lg">
-              <h3 className="font-space font-bold text-2xl text-white">
-                Watch Ajay&apos;s Latest Web Build Reel
-              </h3>
-              <p className="font-inter text-slate-300 text-sm">
-                Click to watch live client site walk-throughs and AI coding demos directly on Instagram (@ajay_teamaurora).
-              </p>
-            </div>
-
-            <a
-              href={siteConfig.instagramUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 rounded-xl bg-slate-900/90 border border-pink-500/50 text-pink-300 hover:text-white font-space font-semibold text-sm backdrop-blur-md shadow-[0_0_20px_rgba(236,72,153,0.3)] hover:scale-105 transition-all flex items-center gap-2"
+              className="px-5 py-2.5 rounded-xl bg-slate-900/90 border border-pink-500/50 text-pink-300 hover:text-white font-space font-semibold text-xs sm:text-sm backdrop-blur-md shadow-[0_0_20px_rgba(236,72,153,0.3)] hover:scale-105 transition-all flex items-center gap-2"
             >
               <Camera className="w-4 h-4 text-pink-400" />
-              <span>Watch on Instagram @ajay_teamaurora</span>
-              <ExternalLink className="w-4 h-4" />
+              <span>Open Reel Directly on Instagram</span>
+              <ExternalLink className="w-3.5 h-3.5" />
             </a>
           </div>
         </div>
