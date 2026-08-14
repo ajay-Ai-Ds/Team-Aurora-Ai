@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import ScrollingTicker from "@/components/ScrollingTicker";
 import About from "@/components/About";
 import AudioJourney from "@/components/AudioJourney";
 import InvestmentShowcase from "@/components/InvestmentShowcase";
@@ -47,6 +48,9 @@ export default function Home() {
 
       {/* 3D Scroll Hero Section */}
       <Hero />
+
+      {/* Infinite Widescreen Landscape Ticker Bar */}
+      <ScrollingTicker />
 
       {/* About Section */}
       <About />

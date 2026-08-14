@@ -42,7 +42,7 @@ function AnimatedStat({ value, suffix, label }: { value: number | string; suffix
 
 export default function About() {
   return (
-    <section id="about" className="py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative overflow-hidden">
+    <section id="about" className="pt-10 pb-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative overflow-hidden">
       {/* Background Subtle Radial Glow */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
 
