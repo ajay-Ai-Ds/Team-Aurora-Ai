@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Play, Pause, Volume2, Globe, TrendingUp, DollarSign, Award, CheckCircle, Sparkles, FileText, Target, ShieldCheck } from "lucide-react";
+import { playAudioSource, stopAllAudioSources, subscribeAudioSource } from "@/utils/audioManager";
 
 export default function AudioJourney() {
   const [language, setLanguage] = useState<"en" | "te">("en");
@@ -14,6 +15,16 @@ export default function AudioJourney() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const audioSrc = language === "en" ? "/teamaurora-english.mp3" : "/teamaurora-telugu.mp3";
+
+  useEffect(() => {
+    const unsubscribe = subscribeAudioSource((activeSource) => {
+      if (activeSource !== "journey" && audioRef.current) {
+        audioRef.current.pause();
+        setIsPlaying(false);
+      }
+    });
+    return unsubscribe;
+  }, []);
 
   useEffect(() => {
     setIsPlaying(false);
@@ -29,7 +40,9 @@ export default function AudioJourney() {
     if (isPlaying) {
       audioRef.current.pause();
       setIsPlaying(false);
+      stopAllAudioSources();
     } else {
+      playAudioSource("journey");
       audioRef.current.play().then(() => setIsPlaying(true)).catch(() => {
         setIsPlaying(true);
       });

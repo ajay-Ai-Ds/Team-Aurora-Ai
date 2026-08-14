@@ -4,11 +4,22 @@ import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown, Volume2, VolumeX } from "lucide-react";
 import { sfx } from "@/utils/soundEffects";
+import { playAudioSource, stopAllAudioSources, subscribeAudioSource } from "@/utils/audioManager";
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(true);
+
+  useEffect(() => {
+    const unsubscribe = subscribeAudioSource((activeSource) => {
+      if (activeSource !== "hero" && videoRef.current) {
+        videoRef.current.muted = true;
+        setIsMuted(true);
+      }
+    });
+    return unsubscribe;
+  }, []);
 
   useEffect(() => {
     // Mobile optimization: detect if screen is mobile (< 768px)
@@ -23,6 +34,7 @@ export default function Hero() {
       } else {
         videoRef.current.muted = false;
         setIsMuted(false);
+        playAudioSource("hero");
         videoRef.current.play().catch(() => {
           if (videoRef.current) {
             videoRef.current.muted = true;
@@ -40,6 +52,11 @@ export default function Hero() {
       const nextMute = !isMuted;
       videoRef.current.muted = nextMute;
       setIsMuted(nextMute);
+      if (!nextMute) {
+        playAudioSource("hero");
+      } else {
+        stopAllAudioSources();
+      }
     }
   };
 

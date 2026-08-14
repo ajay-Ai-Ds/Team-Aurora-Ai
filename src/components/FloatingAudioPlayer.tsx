@@ -1,13 +1,24 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Volume2, VolumeX, Play, Pause, Sparkles } from "lucide-react";
 import { sfx } from "@/utils/soundEffects";
+import { playAudioSource, stopAllAudioSources, subscribeAudioSource } from "@/utils/audioManager";
 
 export default function FloatingAudioPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    const unsubscribe = subscribeAudioSource((activeSource) => {
+      if (activeSource !== "floating" && audioRef.current) {
+        audioRef.current.pause();
+        setIsPlaying(false);
+      }
+    });
+    return unsubscribe;
+  }, []);
 
   const toggleAudio = () => {
     sfx.playButtonClickSound();
@@ -15,7 +26,9 @@ export default function FloatingAudioPlayer() {
     if (isPlaying) {
       audioRef.current.pause();
       setIsPlaying(false);
+      stopAllAudioSources();
     } else {
+      playAudioSource("floating");
       audioRef.current
         .play()
         .then(() => setIsPlaying(true))
