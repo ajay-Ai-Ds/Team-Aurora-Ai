@@ -2,7 +2,7 @@ export const siteConfig = {
   businessName: "TeamAurora.AI",
   tagline: "by Ajay",
   phone: "+91 99893 91930",
-  email: "hello@teamaurora.ai",
+  email: "arjilliajay@gmail.com",
   whatsappNumber: "919989391930",
   instagramUrl: "https://www.instagram.com/ajay_teamaurora?igsh=Zzluc3hnNjNrY2c0",
   githubUrl: "https://github.com/ajay-Ai-Ds",
