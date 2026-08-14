@@ -115,7 +115,7 @@ export default function Hero() {
         transition={{ delay: 1, duration: 1 }}
         className="absolute bottom-2 sm:bottom-5 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1 sm:gap-1.5 text-xs font-inter text-white pointer-events-none drop-shadow-xl"
       >
-        <span className="text-white text-[10px] sm:text-xs font-semibold tracking-wider drop-shadow-md">Scroll to Explore TeamAurora.AI</span>
+        <span className="text-white text-[10px] sm:text-xs font-semibold tracking-wider drop-shadow-md">Scroll to Explore Ajay Aurora.AI</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}

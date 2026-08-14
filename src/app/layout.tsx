@@ -15,7 +15,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "TeamAurora.AI — by Ajay | 3D AI Platform",
+  title: "Ajay Aurora.AI — by Ajay | 3D AI Platform",
   description: "Full-Stack Web Development | AI-Powered Design | Real Client Results",
 };
 

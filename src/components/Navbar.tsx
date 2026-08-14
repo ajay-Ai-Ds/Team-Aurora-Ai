@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, PhoneCall, MessageSquare } from "lucide-react";
 import { siteConfig } from "@/data/siteConfig";
 import { sfx } from "@/utils/soundEffects";
+import AaaLogo from "@/components/AaaLogo";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,19 +43,13 @@ export default function Navbar() {
             transition={{ type: "spring", stiffness: 300, damping: 15 }}
             className="group flex items-center gap-3 cursor-pointer"
           >
-            <div className="w-10 h-10 rounded-xl overflow-hidden border-2 border-pink-500/50 shadow-[0_0_20px_rgba(236,72,153,0.5)] flex-shrink-0 group-hover:border-cyan-400 transition-colors bg-slate-950 p-0.5">
-              <img
-                src="/portfolio/aaa_ai_logo.png"
-                alt="Ajay Aura AI AAA Logo"
-                className="w-full h-full object-cover object-center rounded-lg"
-              />
-            </div>
+            <AaaLogo className="w-10 h-10" />
             <div className="flex flex-col items-start">
               <span className="font-space font-bold text-xl sm:text-2xl tracking-tight text-white group-hover:text-pink-400 transition-colors flex items-center gap-1">
-                Ajay Aura<span className="text-pink-400 font-extrabold text-glow-pink">.AI</span>
+                Ajay Aurora<span className="text-pink-400 font-extrabold text-glow-pink">.AI</span>
               </span>
               <span className="text-[10px] tracking-widest text-cyan-300/90 font-inter uppercase font-semibold pl-0.5">
-                AAA • {siteConfig.tagline}
+                {siteConfig.tagline}
               </span>
             </div>
           </motion.a>
